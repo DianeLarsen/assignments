@@ -1,0 +1,205 @@
+// var things = document.getElementsByClassName("things")
+// for (var i = 0; i < things.length; i++) {
+//     console.log(things[i].innerText)
+// }
+// var result = document.querySelectorAll("ol#favorite-things > li");
+// console.log(Array.from(result));
+// for (var i = 0; i< result.length; i++) {
+//     result[i].textContent = "** REDACTED **"
+// }
+
+// var person = {name: "Joe"};
+// person.name = "Jim";
+// console.log(person);
+
+//my attempt to change p's text to h1's
+    // var placeholderOne = document.querySelector("h1");
+    // console.log(placeholderOne.innerText)
+
+    // var placeholderTwo = document.querySelector("p") 
+    // placeholderTwo.innerText = placeholderOne.innerText
+
+    // console.log(placeholderTwo.innerText)
+
+//instructor
+    // var text = document.querySelector("#header").textContent
+    // document.querySelector("#paragraph").textContent = text
+
+//other stuff
+    // function changeText(){
+    //     var element = document.querySelector("p");
+    //     element.innerText = "placeholderOne.innerText";
+    // }
+
+//Modifying Styles with JS
+
+    // var header = document.getElementById("header");
+    // header.style.color = "blue";
+
+    // var body = document.querySelector("body");
+    // document.body.style.backgroundColor = "burlywood"
+
+//className
+    // var className = document.querySelector("#header").className
+    // console.log(className)
+    // document.querySelector("#header").className += " new-class"
+
+//classList
+//add a new class
+    // document.querySelector("#header").classList.add("new-class")
+    // console.log(document.querySelector("#header").className)
+//remove a class
+    // document.querySelector("#header").classList.remove("another")
+    // console.log(document.querySelector("#header").className)
+//remove/add a class if class is present or not present respectivly
+    // document.querySelector("#header").classList.toggle("new-class")
+    // console.log(document.querySelector("#header").className)
+    // document.querySelector("#header").classList.toggle("new-class")
+    // console.log(document.querySelector("#header").className)
+
+//Modifying Elements: Value
+    // var inputBox = document.getElementById("text-input");
+    // console.log(inputBox.value)
+    // inputBox.value = "CHANGED!"
+
+//Creating Elements in JS
+    // var newLi = document.createElement("li");
+    // newLi.textContent = "3";
+    // var myList = document.getElementById("my-list");
+    //myList.append(newLi);
+    //myList.prepend(newLi)
+
+     var newP = document.createElement("p");
+    // document.querySelector("p").classList.add("new-class");
+    // console.log(document.querySelector("p").className)
+    //newP.textContent = "blah blah";
+   
+    //document.body.append(newP)
+
+    
+    //newP.style.fontSize = "30px"
+    //newP.style.textAlign = "center"
+
+//Creating Elements in JS - innerHTML
+    var myList = document.getElementById("my-list")
+    console.log(myList.textContent);
+    console.log(myList.innerHTML)
+    // harder to adjust style on the below type but if id is added like below you can use the id to do style changes 
+    myList.innerHTML += "<li>3</li>"
+    document.body.innerHTML += "<p>V School rocks!</p>"
+    document.body.innerHTML += "<p id='paragraph'>V School rocks!</p>"
+    document.getElementById("paragraph").style.textAlign = "center"
+//Search Google to learn a little more about the difference between the `.append()` method and the `.appendChild()` method  
+    // Inserting a Node object
+        // const parent = document.createElement('div');
+        // const child = document.createElement('p');
+        // parent.append(child);
+    // This appends the child element to the div element
+    // The div would then look like this <div><p></p></div>
+    // Inserting a DOMString
+        //const parent = document.createElement('div');
+        //parent.append('Appending Text');
+    // The div would then look like this <div>Appending Text</div>
+
+    // Inserting a Node object
+        //const parent = document.createElement('div');
+        //const child = document.createElement('p');
+        //parent.appendChild(child);
+    // This appends the child element to the div element
+    // The div would then look like this <div><p></p></div>
+    // Inserting a DOMString
+        //const parent = document.createElement('div');
+        //parent.appendChild('Appending Text');
+    // Uncaught TypeError: Failed to execute 'appendChild' on 'Node': parameter 1 is not of type 'Node'
+    //     const parent = document.createElement('div');
+    // const child = document.createElement('p');
+    // const appendValue = parent.append(child);
+    // console.log(appendValue) // undefined
+    // const appendChildValue = parent.appendChild(child);
+    // console.log(appendChildValue) // <p><p>
+    // .append allows you to add multiple items while appendChild allows only a single item
+    // const parent = document.createElement('div');
+    // const child = document.createElement('p');
+    // const childTwo = document.createElement('p');
+    // parent.append(child, childTwo, 'Hello world'); // Works fine
+    // parent.appendChild(child, childTwo, 'Hello world');
+    // Works fine, but adds the first element and ignores the rest
+
+
+
+
+<html>
+    <head>
+        <title>Study Page</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!-- <h1 class="things">Thing 1</h1>
+        <h1 class="things">Thing 2</h1>
+        <h1 class="things">Thing 3</h1>
+        <ol id="favorite-things">
+            <li class="thing">Raindrops on roses</li>
+            <li class="thing">Whiskers on kittens</li>
+            <li class="thing">Bright copper kettles</li>
+            <li class="thing">Warm woollen mittens</li>
+        </ol> -->
+        <!-- <h1>Here is some text</h1>
+        <p>PLACEHOLDER</p> -->
+        <!-- <h1 id="header" class="title another">Modifying Styles with JS</h1> -->
+        <!-- <input type="text" id="text-input" value="This is some content"> -->
+        <ul id="my-list">
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+        </ul>
+        
+    </body>
+    <script src="app.js"></script>
+</html>
+var powerRangers = [
+    {name: "Kimberly Hart", color: "Pink"}, 
+    {name: "Jason Lee Scott", color: "Red"}, 
+    {name: "Zack Taylor", color: "Black"}, 
+    {name: "Trini Kwan", color: "Yellow"}, 
+    {name: "Billy Cranston", color: "Blue"},
+    {name: "Tommy Oliver", color: "Green"}
+]
+var rangersList = document.getElementById("rangers");
+
+for(let i=0; i < powerRangers.length; i++) {
+    
+    //One way to add and list
+    // var newName = document.createElement("li");
+    // newName.textContent = powerRangers[i];
+    // rangersList.append(newName);
+    // console.log(newName);
+    //Another way to add and list
+    rangersList.innerHTML += "<li>" + powerRangers[i].name + "is the color " + powerRangers[i].color +"</li>"
+    
+}
+
+Self Study
+// user type into the input box, and after clicking will log input to console and fill a p or head
+
+var inputBox = document.getElementById("textInput");
+var textInside = document.getElementById("myBtn");
+textInside.addEventListener("click", displayText);
+function displayText(){
+    document.getElementById("demo").innerText = inputBox.value
+    console.log(inputBox.value)
+}
+
+<html>
+    <head>
+        <title>Study Page</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <input type="text" id="textInput">
+        <button id="myBtn">Log input value</button> 
+        <p id="demo"></p>
+
+        
+    </body>
+    <script src="app.js"></script>
+</html>
