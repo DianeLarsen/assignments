@@ -5,7 +5,7 @@ coloredBox.addEventListener('mouseover', function handleMouseOver(){
         }
 );
 coloredBox.addEventListener('mouseout', function handleMouseOut() {
-    coloredBox.style.backgroundColor = 'purple';
+    coloredBox.style.backgroundColor = 'orange';
     
   });
 coloredBox.addEventListener('mousedown', function handleMouseDown() {
@@ -21,36 +21,36 @@ coloredBox.addEventListener('dblclick', function handleMouseDblClick() {
   
 });
 
-coloredBox.addEventListener("keydown", (event) => {
-  if(event.isComposing || event.keycode === KeyR){
-    return;
-}
-coloredBox.style.backgroundColor = 'red';
- 
-});
-
-const input = document.querySelector('input');
-const log = document.getElementById('log');
-
-input.addEventListener('keydown', logKey);
-
-function logKey(e) {
-  log.textContent += ` ${e.code}`;
-}
 
 
-// $input.addEventListener('keypress', (e) => {
-//   console.log("keypressed " + e.charCode);
-// })
 
-    // coloredBox.style.backgroundColor = "red";
-    // console.log("I'm Blue!");
+window.addEventListener("keydown", (event) => {
+  if (event.defaultPrevented) {
+    return; // Do nothing if event already handled
+  }
 
-//  Object.keys(window).forEach(key => {
-//      if (/^on/.test(key)) {
-//         window.addEventListener(key.slice(2), event => {
-//              console.log(event.type);
-//           });
-//       }
-//  }); 
- 
+  switch(event.code) {
+    case "KeyR":
+      coloredBox.style.backgroundColor = 'red';
+      break;
+    case "KeyB":
+      coloredBox.style.backgroundColor = 'blue';
+      break;
+    case "KeyY":
+      coloredBox.style.backgroundColor = 'yellow';
+      break;
+    case "KeyO":
+      coloredBox.style.backgroundColor = 'orange';
+      break;
+    case "KeyG":
+      coloredBox.style.backgroundColor = 'green'
+      break;
+  }
+  refresh();
+
+  if (event.code !== "Tab")
+  {
+    event.preventDefault();
+  }
+}, true);
+
