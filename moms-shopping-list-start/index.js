@@ -38,25 +38,27 @@ for (let i = 1; i < length; i++) {
   console.log("X Button " + allXName.length);
   console.log("Edit Button " + allEditName.length);
 
-
+var counterLi = 0
+var counterDiv = 0
 
 form.addEventListener("submit", function(event){
     event.preventDefault()
 
     const itemInput = form.title.value; // get input from form
     let newLi = document.createElement("li"); //create li
-    newLi.className += "itemLi";
-    newLi.id += "itemLi";
+    newLi.className += "itemLi"; // give new li a class name
+    newLi.setAttribute("id", "itemLi" + counterLi ++); // give new li a unique ID
     let divElem = document.createElement("div"); //create div
+    divElem.setAttribute("id", "itemDiv" + counterDiv ++); // give new div a unique ID
     let btnXElem = document.createElement("button"); //create X button
     let btnEditElem = document.createElement("button"); //create edit button
     btnXElem.textContent = "X"; //add text X to button
-    btnXElem.className += "deleteItem";
+    btnXElem.className += "deleteItem"; // give delete button a class
     btnEditElem.textContent = "edit"; //add text edit to 
-    btnEditElem.className += "editItem";
+    btnEditElem.className += "editItem"; // give edit button a class
     btnEditElem.style.margin = "4px"; // fix the issue where the buttons are too close to each other
     divElem.textContent = itemInput; //take input and add it to list
-    newLi.appendChild(divElem); // assing the div element to the li element
+    newLi.appendChild(divElem); // adding the div element to the li element
     newLi.appendChild(btnEditElem);  // adding the edit button to the li element
     newLi.appendChild(btnXElem);  // adding the X button to the li element
     let myList = document.getElementById("list");  //pulling the list 
@@ -73,67 +75,30 @@ form.addEventListener("submit", function(event){
     for (let i = 0; i < allSubjectDelete.length; i++) {
       const deleteBtn = document.getElementsByClassName("deleteItem");
      deleteBtn[i].addEventListener("click", function(e) {
-        console.log("this is working")
+        console.log("delete is working")
       const tgt = e.target;
       if (tgt.classList.contains('deleteItem')) tgt.closest('li').remove();
      })
-    
+     
+     for (let i = 0; i < allSubjectEdit.length; i++) {
+      const editBtn = document.getElementsByClassName("editItem");
+      editBtn[i].addEventListener("click", function(){
+      var pullDiv = document.getElementById("itemDiv"+i);
+      var text = pullDiv.textContent
+      console.log(text)
+           console.log("edit is working")
+           const editItem = document.getElementsByClassName("editItem");
+           editItem[i].textContent = 'save';
+        })
+      }
+
     }
     return(itemInput)
 })
-var allSubjectDelete = document.querySelectorAll(".deleteItem");
-var allSubjectEdit = document.querySelectorAll(".editItem");
+
+//need to take text from pullDiv and put into input box and then after editing alow it to be put back into same div and switch button text back to edit
 
 
 
 
-for (let i = 0; i <= 2; i++) {
-  const deleteBtn = document.getElementsByClassName("deleteItem");
- deleteBtn[i].addEventListener("click", function(e) {
-    console.log("delete this is working")
-  const tgt = e.target;
-  if (tgt.classList.contains('deleteItem')) tgt.closest('li').remove();
- })
 
-}
-
-
-var pullDiv = document.querySelector("li[id = itemLi0] div");
-console.log(pullDiv.innerText)
-
-
-
-
-//need to find a way to label new li's with unique id
-//need to take text from pullDiv and put into input box and then after editing alow it to be put back into same div 
-
-// for (let i = 0; i <= 2; i++) {
-// const editItem = document.getElementsByClassName("editItem");
-// editItem[i].addEventListener('click', function(e){
-//   console.log("edit this is working")
-//   const editItem = document.getElementsByClassName("editItem");
-//   editItem[i].textContent = 'save';
-//   var text = document.getElementById('title');
-//   text.value = 
-//   const tgt = e.target;
-//   if (tgt.classList.contains('editItem')) tgt.closest('div').console.log(textContent);
-  
-// })
-// }
-
-// input id = title
-//document.getElementById("button").addEventListener('click', function () {
-//  var text = document.getElementById('text');
- // text.value += ' after clicking';
-//});
-
-
-// function addRemoveAttr(){
-//   var contenteditable = document.getElementById('txt1').contentEditable;
-  
-//   if(contenteditable == 'inherit' || contenteditable == 'false'){
-//    document.getElementById('txt1').contentEditable = true;
-//   }else{
-//    document.getElementById('txt1').contentEditable = false;
-//   }
-//  }
