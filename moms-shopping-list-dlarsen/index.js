@@ -41,10 +41,11 @@ for (let i = 1; i < length; i++) {
 var counterLi = 0
 var counterDiv = 0
 
-form.addEventListener("submit", function(event){
+
+form.addEventListener("submit", function(event) {
     event.preventDefault()
 
-    const itemInput = form.title.value; // get input from form
+    let itemInput = form.title.value; // get input from form
     let newLi = document.createElement("li"); //create li
     newLi.className += "itemLi"; // give new li a class name
     newLi.setAttribute("id", "itemLi" + counterLi ++); // give new li a unique ID
@@ -77,28 +78,55 @@ form.addEventListener("submit", function(event){
      deleteBtn[i].addEventListener("click", function(e) {
         console.log("delete is working")
       const tgt = e.target;
+
       if (tgt.classList.contains('deleteItem')) tgt.closest('li').remove();
      })
      
      for (let i = 0; i < allSubjectEdit.length; i++) {
-      const editBtn = document.getElementsByClassName("editItem");
-      editBtn[i].addEventListener("click", function(){
-      var pullDiv = document.getElementById("itemDiv"+i);
-      var text = pullDiv.textContent
-      console.log(text)
-           console.log("edit is working")
-           const editItem = document.getElementsByClassName("editItem");
-           editItem[i].textContent = 'save';
+      //const editBtn = document.getElementsByClassName("editItem");
+      allSubjectEdit[i].addEventListener("click", function(e){
+        console.log("target: ", e.target.closest('li').children[0])
+        // let item = e.target.closest('li').children[0]
+        console.log("allsubjectEdit: ", allSubjectEdit[i])
+          console.log("editbutn clicked,id:",allSubjectEdit[i].parentElement.children[0].getAttribute('id'))
+          const pullId= e.target.closest('li').children[0].getAttribute('id')
+          const pullDiv = document.getElementById(pullId);
+          pullDiv.setAttribute("contenteditable","true");
+          pullDiv.style.border = "thin solid #0000FF"
+          /// create a new input field, 
+          // append it to the li
+          // add a save btn
+          // add an eventlister to the save btn 
+            // inside of event lisener: 
+            // take the text from the new input field 
+            // pullDiv.textContent = inputField.value
+          // let text = pullDiv.textContent
+          // form.title.value = text
+          
+          
+          //const editItem = document.getElementsByClassName("editItem");
+          allSubjectEdit[i].textContent = 'save';
+          if (allSubjectEdit[i].textContent == 'save'){
+            console.log("edit is working")
+            allSubjectEdit[i].addEventListener("click", function(){
+            //itemInput = form.title.value; // get input from form
+            pullDiv.setAttribute("contenteditable","false");
+            pullDiv.style.border = null   
+            allSubjectEdit[i].textContent = 'edit';
+             })
+          }
         })
+        // return(itemInput)
       }
-
     }
-    return(itemInput)
-})
-
-//need to take text from pullDiv and put into input box and then after editing alow it to be put back into same div and switch button text back to edit
-
-
+  })
+    
+          
+        
 
 
 
+  
+
+
+//can only edit once, how to make it edit more
