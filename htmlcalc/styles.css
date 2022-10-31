@@ -1,0 +1,76 @@
+*{
+    margin:0;
+    padding:0;
+}
+button{
+    width: 70px;
+}
+div{
+    border-width: 1px;
+    border-color: rgb(227, 120, 138);
+    border-style: solid;
+}
+
+#addNums{
+    background-color:aqua;
+    width: fit-content;
+    padding: 10px;
+}
+#addNum1{
+    padding: 5px;
+    margin: 5px;
+}
+#addNum2{
+    padding: 5px;
+    margin: 5px;
+}
+#addResults{
+    background-color:yellow;
+    width: fit-content;
+    font-size: larger;
+    display: inline;
+    margin-left: 10px;
+    padding: 5px;
+}
+#subNums{
+    background-color:pink;
+    width: fit-content;
+    padding: 10px;
+}
+#subNum1{
+    padding: 5px;
+    margin: 5px;
+}
+#subNum2{
+    padding: 5px;
+    margin: 5px;
+}
+#subtractResults{
+    background-color: aqua;
+    width: fit-content;
+    font-size: larger;
+    display: inline;
+    margin-left: 10px;
+    padding: 5px;
+}
+#mulNums{
+    background-color:yellow;
+    width: fit-content;
+    padding: 10px;
+}
+#mulNum1{
+    padding: 5px;
+    margin: 5px;
+}
+#mulNum2{
+    padding: 5px;
+    margin: 5px;
+}
+#multiplyResults{
+    background-color: pink;
+    width: fit-content;
+    font-size: larger;
+    display: inline;
+    margin-left: 10px;
+    padding: 5px;
+}
