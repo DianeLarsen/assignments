@@ -6,25 +6,28 @@
   </head>
   <body>
     <h1>Mario Pest Control</h1>
+<h3>BADDIES CAUGHT</h3>
     <form name="pricelist"></form>
         <div>
             <ul>
 
-                <li><img src="Goomba.png" alt="Goombas">
-                    Goombas: 5 coins <input type="number" id="goombas">
+                <li><img src="Goomba.png" alt="Goombas" id="goombapic">
+                    Goombas: 5 coins <input type="number" name="coins" id="goombas">
                 </li>
                 
                 <li><img src="Boboms.png" alt="bob-ombs">
-                    Bob-ombs: 7 coins <input type="number" id="bobOmbs">
+                    Bob-ombs: 7 coins <input type="number" name="coins" id="bobOmbs">
                 </li>
                 
                 <li><img src="cheepcheep.png" alt="cheep cheep">
-                    Cheep-cheeps: 11 coins <input type="number" id="cheeps">
+                    Cheep-cheeps: 11 coins <input type="number" name="coins" id="cheeps">
                 </li>
                 
             </ul>
         </div>
-        <p>Total Due:<p id="totalDue"></p></p>
+        <button id="totalCost">Submit</button>
+        <p>Total Due: <span id="totalDue">0</span> Coins</p>
+        
     </form>    
     <footer>www.SuperMarioBros.com</footer>
     <footer>Contact Us: Mario@SuperMarioBros.com</footer>

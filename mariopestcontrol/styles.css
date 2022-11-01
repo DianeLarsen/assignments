@@ -4,3 +4,33 @@ ul{
 img{
     width: 100px;
 }
+#goombapic{
+    width: 90px;
+}
+h1{
+    text-align: center;
+    font-family: Georgia , serif;
+}
+h3{
+    font-family: Georgia , serif;
+    font-weight: bold; 
+}
+p, li{
+    padding: 10px;
+    font-size: larger;
+    font-family: Georgia , serif;
+}
+span, p, footer, button{
+    text-align: center;
+    font: Georgia , serif;
+}
+button {
+    margin: 10px;
+    margin-left: 200px;
+    position: relative;
+    font-size: larger;
+    
+  }
+  p{
+    display: inline-block
+  }
