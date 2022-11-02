@@ -131,7 +131,30 @@ var voters = [
 ];
 
 function voterResults(arr) {
-    
+    return arr.reduce(function(final, voter){
+        if((voter.voted)&&(voter.age<26)){
+          final.numYoungVotes++
+        }else if((voter.voted)&&(voter.age>35)){  
+            final.numOldVotesPeople++
+        }else if((voter.voted)){
+            final.numMidVotesPeople++
+        }
+        if(voter.age>35){
+            final.numOldsPeople++
+        }else if(voter.age<26){
+            final.numYoungPeople++
+        }else {
+            final.numMidsPeople++
+        }
+        return final
+    }, { numYoungVotes: 0,
+        numYoungPeople: 0,
+        numMidVotesPeople: 0,
+        numMidsPeople: 0,
+        numOldVotesPeople: 0,
+        numOldsPeople: 0
+      })
+      
 }
 
 console.log(voterResults(voters)); // Returned value shown below:
