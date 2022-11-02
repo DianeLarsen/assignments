@@ -38,16 +38,18 @@ var peopleArray = [
 
 function sortedOfAge(arr){
          
-    return arr.filter(num=>{
+    return arr.filter(num =>{
         if(num.age > 18){
             return true
         }
-    }).sort(function (a, b) {
-         a.lastName.localeCompare(b.lastName)
-         
-    })
-      
+     })
+    .sort((a, b) => a.lastName.localeCompare(b.lastName)).map(showInfo=>{
+    
+    return "<li>"+showInfo.firstName+" "+showInfo.lastName+" is " +showInfo.age+"</li>"})
+    
     }
+      
+    
   
  
  
