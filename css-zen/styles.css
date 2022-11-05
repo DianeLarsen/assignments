@@ -50,51 +50,127 @@ img:hover {
 #garden{
     margin:0;
     border-top: solid 10px rgba(19, 67, 71, 0.9);
-    background: url(noise.png) repeat,url(gridlines-opaque.png),url(enso.svg) no-repeat, url(contours-opaque.png),url(huntington.jpg);
-    background-size:  100px, 260px 218px, 80px, 500px, 100% 260px;
-    background-position:  top left, top left,left 168px top 33px, left top, bottom left;
+    background: url(noise.png) repeat,url(gridlines.png),url(enso.svg) no-repeat, url(contours.png),url(huntington.jpg) no-repeat;
+    background-size:  50px, 260px 218px, 50px, 230px, 100% 240px;
+    background-position:  top left, top left,left 50% top 10%, left top, bottom left;
+    height: 240px;
+    
 
     /* background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 66%,rgba(33,84,95,0.3) 66%,rgba(33,84,95,0) 100%); */
 }
-#dottedUL{
-    border-bottom: 1px dashed rgba(245, 245, 245, 0.671);
-  text-decoration: none; ;
+.dottedUL{
+  text-decoration: dotted underline; 
+  text-decoration-thickness: 1.65px;
 }
 #header{
     height: 170px;
     text-align: center;
-    color: whitesmoke;
-    font-family: 'julius_sans_oneregular';
-    font-size: 18px;
-    font-weight: 100;
+    
+    color: white;
+
+    font-stretch: ultra-expanded;
+    
+    align-items: center;
+    text-align: center;
+    
+
 }
+h1{
+    font-family: 'julius_sans_oneregular';
+    font-size: 28px;
+    font-weight: 100;
+    padding: 10px;
+    padding-top: 90px;
+    align-self: center;
+}
+h5{
+    font-family: 'julius_sans_oneregular';
+    font-size: 19px;
+    font-weight: 100;
+    padding-left: 45px;
+    padding-right: 50px;
+    padding-bottom: 7px;
+    padding-top: 25px;
+}
+
 #pretty{
     font-style: italic;
     color: rgba(245, 245, 245, 0.671);
     font-family: 'librebaserville-regular-webfont.woff';
     font-weight: 100;
+    font-size: 20px;
+    
+}
+p{
+    font-family: 'librebaserville-regular-webfont.woff';
+    padding-left: 45px;
+    padding-right: 70px;
+    font-size: 16.5px;
+    line-height: 1.6;
+    padding-bottom: 7px;
+}
+#start{
+    padding-top: 30px;
+    
 }
 #navLink{
-    height: 50px;
-    text-align: center;
-    color: rgba(245, 245, 245, 0.671);
+    height: 70px;
+    color: rgba(245, 245, 245, 0.975);
     font-family: 'julius_sans_oneregular';
     font-size: 13px;
+    background: url(noise.png);
+    background-color: rgba(240, 248, 255, 0.365);
+    width: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
 }
+#leftNavLink{
+    width: 15%;
+    height: 70px;
+    
+}
+
+#midBox{
+    padding: 7.5%;
+}
+#midNavLink{
+    width:70%;
+    height: 70px;
+    display: inline-block;
+    transition: .2s linear;
+}
+
+#midNavLink:hover{
+    background-color: rgba(254, 255, 240, 0.25);
+}
+#rightNavLink{
+    width:15%;
+    height: 70px;
+    display: inline-block;
+    transition: .2s linear;
+}
+#rightNavLink:hover{
+    background-color: rgba(254, 255, 240, 0.25);
+}
+
 #infoBlurb{
-    height: 150px;
+    height: 550px;
 }
 #references{
     height: 150px;
 }
 #moreInfo{
-    height: 150px;
+    height: 550px;
 }
 #otherNavLinks{
     height: 150px;
 }
 #requirements{
-    height: 150px;
+    height: 550px;
 }
 #blank{
     height: 150px;
