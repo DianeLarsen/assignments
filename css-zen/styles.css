@@ -1,7 +1,17 @@
 * {
     margin: 0;
-
+    box-sizing: border-box;
  } 
+ @font-face {
+    font-family: 'verdemoderna';
+    src:url('verdemoderna.eot');
+    src:url('verdemoderna.eot?#iefix') format('embedded-opentype'),
+      url('verdemoderna.woff') format('woff'),
+      url('verdemoderna.ttf') format('truetype'),
+      url('verdemoderna.svg#verdemoderna') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }                 
  @font-face {
     font-family: 'julius_sans_oneregular';
     src: url('juliussansone-regular-webfont.woff2') format('woff2'),
@@ -29,7 +39,7 @@
 .background{
     display: grid;
     position: relative;
-    
+    font-size: 0;
     background-color: rgb(248, 248, 247,1.0);
     width: auto;
     grid-template-columns: auto;
@@ -90,9 +100,21 @@ img:hover {
     align-items: center;
     text-align: center;
     grid-area: "a";
-    grid-row: 1;
+ 
     
 
+}
+ul{
+    display:grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    
+}
+li{
+    text-decoration: none;
+    list-style-type: none; 
+    
+    
 }
 h1{
     font-family: 'julius_sans_oneregular';
@@ -107,9 +129,9 @@ h5{
     font-size: 19px;
     font-weight: 100;
     padding-left: 45px;
-    padding-right: 50px;
+   
     padding-bottom: 10px;
-    padding-top: 17px;
+    padding-top: 34px;
 }
 
 #pretty{
@@ -124,7 +146,7 @@ h5{
 p{
     font-family: 'librebaserville-regular-webfont.woff';
     padding-left: 45px;
-    padding-right: 65px;
+    padding-right: 62px;
     font-size: 16.5px;
     line-height: 1.6;
     padding-bottom: 7px;
@@ -152,7 +174,7 @@ p{
     vertical-align: middle;
     justify-content: center;
     grid-area: "b";
-    grid-row: 2;
+
     
 }
 #leftNavLink{
@@ -179,31 +201,36 @@ p{
     height: 70px;
     display: inline-block;
     transition: .2s linear;
+    font-family: 'verdemoderna';
+    color: white;
+    font-size:44px; 
+    text-decoration: none;
 }
 #rightNavLink:hover{
     background-color: rgba(254, 255, 240, 0.25);
 }
-.brcolor{
-    background-color: rgb(248, 248, 247);
-}
 
+.blurbs{
+    padding-bottom: 30px;
+}
 #infoBlurb{
 
     grid-area: "c";
-    grid-row: 3;
     background-color: rgb(248, 248, 247,1.0);
-    padding-bottom: 10px;
+    
 }
 #references{
-    position: relative;
+    display:block;
+    /* position: relative; */
     grid-area: "h";
-    padding-left: 45px;
-    padding-right: 65px;
-    grid-row: 8;
-    height:305px;
+    height:auto;
     background-color: rgb(237,244,240);
     /* color: #c0cac3; */
     /* border-top: solid 1px #d9e3dc; */
+    padding:0;
+    margin:0;
+
+    
 }
 
 
@@ -212,28 +239,26 @@ p{
     background-size: auto, auto, cover;
     background-attachment: scroll, scroll, fixed;
     grid-area: "d";
-    grid-row: 4;
     background-color: rgba(138,188,159,0.45);
-
-    
+    height: 825px;
+    font-size: 16.5px;
+   
 }
 #otherNavLinks{
     
     grid-area: "i";
-    padding-left: 45px;
-    padding-right: 65px;
-    grid-row: 9;
+
     background: url(bamboo.png)no-repeat;
     background-color: rgba(138,188,159,0.5);
-    height: 180px;
+    height:auto;
     /* position: absolute; */
     bottom: 0;
+    font-size: 16.5px;
+    display: block;
     
 }
 #requirements{
-
     grid-area: "e";
-    grid-row: 5;
     background-color: rgb(248, 248, 247,1.0);
 }
 #blank{
@@ -246,19 +271,84 @@ p{
     grid-area: "f";
     padding-left: 45px;
     padding-right: 65px;
-    grid-row: 6;
     height: 225px;
-    font-family: 'julius_sans_oneregular';
-    font-size: 14px;
-    font-style: normal;
-    color:whitesmoke;
+    font-family: 'librebaserville-regular-webfont.woff';
+    font-size: 25px;
+    font-style: italic;
+    color:rgba(245, 245, 245, 0.486);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    line-height: 2.0;
 }
 #socialFooter{
-    
     grid-area: "g";
-    padding-left: 45px;
-    padding-right: 65px;
     background-color: rgb(19, 67, 71);
-    grid-row: 7;
-    height:180px;
+    height:auto;
+    font-family: 'verdemoderna';
+    color: rgba(255, 255, 255, 0.521);
+    font-size:48px;
+    list-style-type: none;  
+    font-weight: normal; 
+    display:flex; 
+    float:left;
+
 }
+.lists{
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    
+
+}
+.listsMoving{
+    float:left;
+    font-size: 16px;
+    font-style: normal;
+    color:  #607476;
+    font-family: 'julius_sans_oneregular';
+    text-decoration: none;
+  	list-style: none;
+    padding-left: 0;
+    width: 50%;
+    display: block;
+    margin: 0;
+    height: auto;
+    border-top: solid 1px #d9e3dc;
+    padding: 1em;
+}
+.socialULList{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: block;
+}
+.socialList{
+    float:left;
+    flex-direction: row;
+}
+.insert{
+    font-size: 16px;
+    font-family: 'librebaserville-regular-webfont.woff';
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.299);
+}
+.author{
+    font-size: 16px;
+    font-family: 'librebaserville-regular-webfont.woff';
+}
+.creation{
+    width: 200px;
+    height: auto;
+}
+.dottedthing{
+    text-decoration: dotted underline; 
+    text-decoration-thickness: 1.65px;
+    font-size: 16px;
+    text-underline-position:under ;
+  
+  }
