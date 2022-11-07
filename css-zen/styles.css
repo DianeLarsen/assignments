@@ -152,14 +152,13 @@ p{
     padding-bottom: 7px;
     color: rgb(94, 94, 94);
     text-align: justify;
-
 }
 #start{
     padding-top: 34px;
-    
 }
+
 #navLink{
-    height: 70px;
+    height: auto;
     color: rgba(245, 245, 245, 0.975);
     font-family: 'julius_sans_oneregular';
     font-size: 14px;
@@ -174,12 +173,10 @@ p{
     vertical-align: middle;
     justify-content: center;
     grid-area: "b";
-
-    
 }
 #leftNavLink{
     width: 15%;
-    height: 70px;
+    
     
 }
 
@@ -188,9 +185,11 @@ p{
 }
 #midNavLink{
     width:70%;
-    height: 70px;
+    line-height: 50px;
     display: inline-block;
     transition: .2s linear;
+   
+    
 }
 
 #midNavLink:hover{
@@ -198,7 +197,7 @@ p{
 }
 #rightNavLink{
     width:15%;
-    height: 70px;
+    
     display: inline-block;
     transition: .2s linear;
     font-family: 'verdemoderna';
@@ -217,6 +216,7 @@ p{
 
     grid-area: "c";
     background-color: rgb(248, 248, 247,1.0);
+    
     
 }
 #references{
@@ -240,18 +240,16 @@ p{
     background-attachment: scroll, scroll, fixed;
     grid-area: "d";
     background-color: rgba(138,188,159,0.45);
-    height: 825px;
+    height: auto;
     font-size: 16.5px;
+    padding-bottom: 15px;
    
 }
 #otherNavLinks{
-    
     grid-area: "i";
-
     background: url(bamboo.png)no-repeat;
     background-color: rgba(138,188,159,0.5);
     height:auto;
-    /* position: absolute; */
     bottom: 0;
     font-size: 16.5px;
     display: block;
@@ -284,17 +282,27 @@ p{
     line-height: 2.0;
 }
 #socialFooter{
+    /* clear:both; */
     grid-area: "g";
     background-color: rgb(19, 67, 71);
     height:auto;
-    font-family: 'verdemoderna';
-    color: rgba(255, 255, 255, 0.521);
-    font-size:48px;
-    list-style-type: none;  
-    font-weight: normal; 
-    display:flex; 
-    float:left;
+    list-style-type: none; 
+}
+.socialULList{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
 
+}
+.socialList{
+    font-family: 'verdemoderna';
+    font-size:48px;
+    color: rgba(255, 255, 255, 0.521);
+    padding: 1em 5%;
+    
 }
 .lists{
     display: block;
@@ -320,17 +328,7 @@ p{
     border-top: solid 1px #d9e3dc;
     padding: 1em;
 }
-.socialULList{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: block;
-}
-.socialList{
-    float:left;
-    flex-direction: row;
-}
+
 .insert{
     font-size: 16px;
     font-family: 'librebaserville-regular-webfont.woff';
@@ -352,3 +350,12 @@ p{
     text-underline-position:under ;
   
   }
+  #rnLink{
+    text-decoration: none;
+    color:white;
+    
+}
+@media only screen and (min-width: 1132px){
+body {
+    font-size: 100%;}
+}
