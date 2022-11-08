@@ -45,7 +45,7 @@
     grid-template-columns: auto;
     grid-template-rows: auto;
     grid-template-areas: "a" 
-                         "b"
+                         
                          "c"
                          "d"
                          "e"
@@ -54,26 +54,32 @@
                          "h"
                          "i";
 }
+@media only screen and (min-width: 1132px){
+    body {
+        font-size: 100%;}
+    .background{
+        display: grid;
+        position: relative;
+        font-size: 0;
+        background-color: rgb(248, 248, 247,1.0);
+        width: auto;
+        grid-template-columns: repeat(5, 1fr);;
+        grid-template-rows: auto;
+        grid-template-areas: "a a a a a" 
+                             "c c c h h"
+                             "d d d i i"
+                             "e e e j j"
+                             "f f f f f"
+                             "g g g g g";
+        }
+    
+    }
 .prevent-select {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
   }
-/* #garden{
-    margin:0;
-    background-color: rgba(19, 67, 71, 0.9);
-    background: url(noise.png) repeat,url(enso.svg) left top no-repeat,url(gridlines-opaque.png) top left,url(contours-opaque.png)left top repeat,url(huntington.jpg) left top no-repeat;
-    background-size: 100px, 80px, 260px 218px, 100px, 100% 260px;
-    background-position: top left, left 168px top 33px, top -4px left, bottom left;
-    border-top: solid 10px rgba(19, 67, 71, 0.9);
-    img {
-  opacity: 0.5;
-}
 
-img:hover {
-  opacity: 1.0;
-}
-} */
 #garden{
     margin:0;
     border-top: solid 10px rgba(19, 67, 71, 0.9);
@@ -81,28 +87,22 @@ img:hover {
     background-size:  50px, 260px 218px, 50px, 230px, 100% 240px;
     background-position:  top left, top left,left 50% top 10%, left top, bottom left;
     height: 240px;
+    grid-area: a;
   
 }
 .dottedUL{
   text-decoration: dotted underline; 
   text-decoration-thickness: 1.65px;
   font-size: 15px;
-
 }
+
 #header{
     height: 170px;
     text-align: center;
-    
     color: white;
-
     font-stretch: ultra-expanded;
-    
     align-items: center;
     text-align: center;
-    grid-area: "a";
- 
-    
-
 }
 ul{
     display:grid;
@@ -160,35 +160,30 @@ p{
 #navLink{
     height: auto;
     color: rgba(245, 245, 245, 0.975);
-    font-family: 'julius_sans_oneregular';
-    font-size: 14px;
-    font-style: normal;
     background: url(noise.png);
     background-color: rgba(240, 248, 255, 0.365);
-    width: 100%;
-    float: left;
     display: flex;
-    align-items: center;
-    text-align: center;
-    vertical-align: middle;
-    justify-content: center;
-    grid-area: "b";
+    
 }
 #leftNavLink{
     width: 15%;
-    
-    
 }
 
-#midBox{
-    padding: 7.5%;
-}
+ #midBox{
+    font-size: 20px;
+} 
 #midNavLink{
+    z-index: 2;
     width:70%;
     line-height: 50px;
-    display: inline-block;
+    display: block;
     transition: .2s linear;
-   
+    padding: 12px 0 0 0;
+    text-align: center;
+    height:fit-content;
+    margin-bottom: 0.25em;
+    font-family: 'julius_sans_oneregular';
+    font-style: normal;
     
 }
 
@@ -261,6 +256,7 @@ p{
 }
 #blank{
     display:none;
+    grid-area: "j";
 }
 #byWho{
     background: url(noise.png) repeat,url(gridlines.png), url(contours.png),url(koi.jpg) no-repeat;
@@ -354,8 +350,4 @@ p{
     text-decoration: none;
     color:white;
     
-}
-@media only screen and (min-width: 1132px){
-body {
-    font-size: 100%;}
 }
