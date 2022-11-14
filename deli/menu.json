@@ -1,0 +1,63 @@
+{
+    "appetizers":[
+        {
+            "name": "wings",
+            "ingredients":["chicken", "sauce"],
+            "description":"Spicy Buffalo Chicken Wings"
+        },
+        {
+            "name": "poppers",
+            "ingredients":["jalapano", "breading", "cream cheese"],
+            "description":"Jalapeno Poppers"
+        }
+    ],
+    "cold sandwiches":[
+        {
+            "name": "blt",
+            "ingredients":["bacon", "lettuce", "tomato", "bread", "mayo"],
+            "description":"Bacon Lettuce and Tomato Sandwich"
+        },
+        {
+            "name": "ham and cheese",
+            "ingredients":["ham", "cheese", "mayo", "mustard", "bread"],
+            "description":"Ham and Cheese Sandwich"
+        }
+    ],
+    "hot sandwiches":[
+        {
+            "name": "meatball",
+            "ingredients":["meatballs", "sauce", "cheese", "bread"],
+            "description":"Italian Meatball Sandwich"
+        },
+        {
+            "name": "grilled ham and cheese",
+            "ingredients":["ham", "cheese",  "bread"],
+            "description":"Grilled Ham and Cheese Sandwich"
+        }
+    ],
+    "desserts":[
+        {
+            "name": "chocolate cream pie",
+            "ingredients":["chocolate", "pie crust"],
+            "description":"Chocolate Cream Pie"
+        },
+        {
+            "name": "poppers",
+            "ingredients":["jalapano", "breading", "cream cheese"],
+            "description":"Jalapeno Poppers"
+        }
+    ],
+    "drinks":[
+        {
+            "name": "Strawberry Lemonade",
+            "ingredients":["strawberry", "lemonade"],
+            "description":"Strawberry Lemonade"
+        },
+        {
+            "name": "iced tea",
+            "ingredients":["ice", "tea"],
+            "description":"Plain Iced Tea"
+        }
+    ]
+
+}
