@@ -14,13 +14,26 @@ function listData(data){
     for(let i = 0; i < data.length; i++){
         
         let checkbox = document.createElement('input');
-            checkbox.type = "checkbox";
         let label = document.createElement('label');
-            label.appendChild(document.createTextNode(`   ${data[i].title}`));
+        let lineBreak = document.createElement('br');
+        let imgShow = document.createElement('div');
+              
+            checkbox.type = "checkbox";
+            // adds text to label element
+            label.appendChild(document.createTextNode(`  Title: ${data[i].title}   Price : ${data[i].price}  Description:  ${data[i].description}`));
+            // links label and checkbox together
             todolist.appendChild(checkbox);
             todolist.appendChild(label);
-        let lineBreak = document.createElement('br');
-            todolist.appendChild(lineBreak);    
+            imgShow.style.backgroundImage = data[i].imgUrl
+            todolist.appendChild(imgShow);
+            //creates a linebreak for clarity
+            todolist.appendChild(lineBreak);
+
+                
+                
+                
+           //document.querySelector("#display-image").style.backgroundImage = `url(${data[i].img})`;
+            //console.log(imgShow)
             
     }
 }
@@ -42,7 +55,10 @@ todoForm.addEventListener("submit", function(e){
     e.preventDefault()
     
     const newTodo = {
-        title: todoForm.title.value
+        title: todoForm.title.value,
+        price: todoForm.price.value,
+        description: todoForm.description.value,
+        imgUrl: todoForm.imgUrl.value
     }
     
     todoForm.title.value = ""
