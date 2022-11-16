@@ -16,16 +16,17 @@ function listData(data){
         let checkbox = document.createElement('input');
         let label = document.createElement('label');
         let lineBreak = document.createElement('br');
-        let imgShow = document.createElement('div');
-              
+        let imgDiv = document.createElement('div');
+        let imgShow = document.createElement('img');
             checkbox.type = "checkbox";
             // adds text to label element
             label.appendChild(document.createTextNode(`  Title: ${data[i].title}   Price : ${data[i].price}  Description:  ${data[i].description}`));
             // links label and checkbox together
             todolist.appendChild(checkbox);
             todolist.appendChild(label);
-            imgShow.style.backgroundImage = data[i].imgUrl
-            todolist.appendChild(imgShow);
+            imgDiv.appendChild(imgShow);
+            imgShow.src = data[i].imgUrl
+            todolist.appendChild(imgDiv);
             //creates a linebreak for clarity
             todolist.appendChild(lineBreak);
 

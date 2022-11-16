@@ -8,9 +8,9 @@ label {
     text-decoration: line-through;
   }
   
-  #display-image{
-    width: 400px;
-    height: 225px;
+  img{
+    width: 50px;
+    height: auto;
     border: 1px solid black;
     background-position: center;
     background-size: cover;
