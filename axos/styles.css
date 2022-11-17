@@ -15,5 +15,8 @@ label {
     background-position: center;
     background-size: cover;
   }
-  
+  li{
+    list-style: none;
+    font-size: x-small;
+  }
   

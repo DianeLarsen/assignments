@@ -15,53 +15,91 @@ function listData(data){
         
         const checkbox = document.createElement('input');
         const label = document.createElement('label');
+        const labelTitle = document.createElement('label');
+        const labelPrice = document.createElement('label');
+        const labelDes = document.createElement('label');
         const lineBreak = document.createElement('br');
         const imgSpan = document.createElement('span');
         const imgShow = document.createElement('img');
         const edit = document.createElement("button");
         const del = document.createElement("button");
-
+        const li = document.createElement("li")
         //Create button
         edit.textContent = "edit";
         del.textContent = "X";
 
             checkbox.type = "checkbox";
             // adds text to label element
-            label.appendChild(document.createTextNode(`  Title: ${data[i].title}   Price : ${data[i].price}  Description:  ${data[i].description}     `));
+            labelTitle.appendChild(document.createTextNode(`  Title: ${data[i].title}     `));
+            labelPrice.appendChild(document.createTextNode(`  Price : ${data[i].price}     `));
+            labelDes.appendChild(document.createTextNode(`    Description:  ${data[i].description}     `));
             // links label and checkbox together
-            todolist.appendChild(checkbox);
-            todolist.appendChild(label);
-            imgSpan.appendChild(imgShow);
-            imgShow.src = data[i].imgUrl
-            todolist.appendChild(imgSpan);
-            //creates a linebreak for clarity
-            todolist.append(edit, del);
-            document.getElementById("list").append(li);
-            todolist.appendChild(lineBreak);
+            label.appendChild(labelTitle);
+            label.appendChild(labelPrice);
+            label.appendChild(labelDes);
 
-            edit.classList.add("edit");    
+            li.appendChild(checkbox);
+            li.appendChild(label);
+          
+            imgSpan.appendChild(imgShow);
+            imgShow.src = data[i].imgUrl || ""
+            if(imgShow.src !== "undefined"){
+                li.appendChild(imgSpan);
+            }
+            //creates a linebreak for clarity
+            li.append(edit, del);
+            
+            //document.getElementById("list").append(li);
+            todolist.appendChild(li);
+            todolist.append(lineBreak);
+
+            edit.classList.add("edit"); 
+
             del.addEventListener("click", () => {
                 li.remove();
               });
             
-              edit.addEventListener("click", () => {
-                const input = document.createElement("input");
-                input.value = div.textContent;
-                div.replaceWith(input);
-                edit.textContent = "save";
+            edit.addEventListener("click", () => {
+                console.log(labelTitle.value);
+                const formInsert = document.createElement("form");
+                const inputTitle = document.createElement("input");
+                const inputPrice = document.createElement("input");
+                const inputDes = document.createElement("input");
+                const inputImg = document.createElement("input");
+              
+                inputTitle.value = labelTitle.textContent;
+                inputPrice.value = labelPrice.textContent;
+                inputDes.value = labelDes.textContent;
+                inputImg.value = imgShow.src;
+                formInsert.appendChild(inputTitle);
+                formInsert.appendChild(inputPrice);
+                formInsert.appendChild(inputDes);
+                formInsert.appendChild(inputImg);
+                
+                        
+            label.replaceWith(formInsert);
+            edit.textContent = "save";
+
+            edit.addEventListener("click", () => {
+                labelTitle.textContent = inputTitle.value;
+                labelPrice.textContent = inputPrice.value;
+                labelDes.textContent = inputDes.value;
+                imgShow.src = inputImg.value;
+          
+                formInsert.replaceWith(label);
+                edit.textContent = "edit";
+            });
+           
+            })
+        
             
-                edit.addEventListener("click", () => {
-                  div.textContent = input.value;
-                  input.replaceWith(div);
-                  edit.textContent = "edit";
-                });
-              });     
+              };     
                 
            //document.querySelector("#display-image").style.backgroundImage = `url(${data[i].img})`;
             //console.log(imgShow)
             
     }
-}
+
 
 function clearList(){
     const el = document.getElementById('todolist')
@@ -83,7 +121,7 @@ todoForm.addEventListener("submit", function(e){
         title: todoForm.title.value,
         price: todoForm.price.value,
         description: todoForm.description.value,
-        imgUrl: todoForm.imgUrl.value
+        imgUrl: todoForm.imgUrl.value 
     }
     
     todoForm.title.value = ""
