@@ -63,6 +63,9 @@ todoForm.addEventListener("submit", function(e){
     }
     
     todoForm.title.value = ""
+    todoForm.price.value = ""
+    todoForm.description.value = ""
+    todoForm.imgUrl.value = ""
     
     axios.post("https://api.vschool.io/diane/todo", newTodo)
         .then(res => getData(res))
