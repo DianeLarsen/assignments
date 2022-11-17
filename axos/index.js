@@ -13,25 +13,49 @@ function listData(data){
 
     for(let i = 0; i < data.length; i++){
         
-        let checkbox = document.createElement('input');
-        let label = document.createElement('label');
-        let lineBreak = document.createElement('br');
-        let imgDiv = document.createElement('div');
-        let imgShow = document.createElement('img');
+        const checkbox = document.createElement('input');
+        const label = document.createElement('label');
+        const lineBreak = document.createElement('br');
+        const imgSpan = document.createElement('span');
+        const imgShow = document.createElement('img');
+        const edit = document.createElement("button");
+        const del = document.createElement("button");
+
+        //Create button
+        edit.textContent = "edit";
+        del.textContent = "X";
+
             checkbox.type = "checkbox";
             // adds text to label element
-            label.appendChild(document.createTextNode(`  Title: ${data[i].title}   Price : ${data[i].price}  Description:  ${data[i].description}`));
+            label.appendChild(document.createTextNode(`  Title: ${data[i].title}   Price : ${data[i].price}  Description:  ${data[i].description}     `));
             // links label and checkbox together
             todolist.appendChild(checkbox);
             todolist.appendChild(label);
-            imgDiv.appendChild(imgShow);
+            imgSpan.appendChild(imgShow);
             imgShow.src = data[i].imgUrl
-            todolist.appendChild(imgDiv);
+            todolist.appendChild(imgSpan);
             //creates a linebreak for clarity
+            todolist.append(edit, del);
+            document.getElementById("list").append(li);
             todolist.appendChild(lineBreak);
 
-                
-                
+            edit.classList.add("edit");    
+            del.addEventListener("click", () => {
+                li.remove();
+              });
+            
+              edit.addEventListener("click", () => {
+                const input = document.createElement("input");
+                input.value = div.textContent;
+                div.replaceWith(input);
+                edit.textContent = "save";
+            
+                edit.addEventListener("click", () => {
+                  div.textContent = input.value;
+                  input.replaceWith(div);
+                  edit.textContent = "edit";
+                });
+              });     
                 
            //document.querySelector("#display-image").style.backgroundImage = `url(${data[i].img})`;
             //console.log(imgShow)
