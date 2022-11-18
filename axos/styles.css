@@ -2,10 +2,25 @@ label {
     font-size: 1.5em;
     
   }
-  
-  input[type=checkbox]:checked + label {
+  input.checkedbox{
+  animation: pop .3s ease;
+  width:20px;
+  height:20px;
+  transition: linear .5s;
+ 
+  }
+  input.checkedbox:checked{
+    width:15px;
+    height:15px;
+  }
+
+  input.checkedbox:checked + label {
     color:red;
     text-decoration: line-through;
+
+    
+ 
+      
   }
   
   img{

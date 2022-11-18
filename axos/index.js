@@ -1,19 +1,21 @@
 // GET's THE TODO's FROM THE DATABASE
 function getData(){
     axios.get("https://api.vschool.io/diane/todo")
-        .then(res => listData(res.data))
+        .then(res => {listData(res.data)})
         .catch(err => console.log(err))
 }
+const checkBox = document.getElementById("checkbox")
 
 
 // LISTS THE TODO TITLES TO THE DOM
 function listData(data){
-
+console.log(data)
     clearList()
 
     for(let i = 0; i < data.length; i++){
         
         const checkbox = document.createElement('input');
+        checkbox.classList.add("checkedbox")
         const label = document.createElement('label');
         const labelTitle = document.createElement('label');
         const labelPrice = document.createElement('label');
@@ -29,10 +31,17 @@ function listData(data){
         del.textContent = "X";
 
             checkbox.type = "checkbox";
+            checkbox.checked = data[i].completed
+          
+            checkbox.addEventListener("click", () => {
+                checked(data[i]._id,checkbox.checked)
+            })
+
+
             // adds text to label element
         
             labelTitle.appendChild(document.createTextNode(data[i].title));
-            labelPrice.appendChild(document.createTextNode(`   ${data[i].price || ""}  `));
+            labelPrice.appendChild(document.createTextNode(`  ${data[i].price }  `));
             labelDes.appendChild(document.createTextNode(data[i].description));
             // links label and checkbox together
             
@@ -100,7 +109,6 @@ function listData(data){
                 formInsert.appendChild(urlLabel);
                 formInsert.appendChild(inputImg);
                 
-                        
             label.replaceWith(formInsert);
             edit.textContent = "save";
 
@@ -117,7 +125,7 @@ function listData(data){
                     imgUrl: inputImg.value
                 } 
 
-                console.log(updateTodo)
+                //console.log(updateTodo)
                  axios.put(`https://api.vschool.io/diane/todo/${data[i]._id}`, updateTodo)
                      .then(res => getData(res))
                      .catch(err => console.log(err))
@@ -134,7 +142,11 @@ function listData(data){
             //console.log(imgShow)
             
     }
-
+function checked(id, status){
+    axios.put(`https://api.vschool.io/diane/todo/${id}`, {completed: status})
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+}
 
 function clearList(){
     const el = document.getElementById('todolist')
@@ -149,24 +161,25 @@ getData()
 // FORM FOR THE POST REQUEST
 const todoForm = document["todo-form"]
 
-todoForm.addEventListener("submit", function(e){
-    e.preventDefault()
+ todoForm.addEventListener("submit", function(e){
+     e.preventDefault()
     
-    const newTodo = {
-        title: todoForm.title.value,
-        price: todoForm.price.value || 0,
-        description: todoForm.description.value,
-        imgUrl: todoForm.imgUrl.value 
-    }
+     const newTodo = {
+         title: todoForm.title.value,
+         price: todoForm.price.value || 0,
+         description: todoForm.description.value,
+         imgUrl: todoForm.imgUrl.value,
+         completed: false
+     }
+     console.log(newTodo)
+     todoForm.title.value = ""
+     todoForm.price.value = ""
+     todoForm.description.value = ""
+     todoForm.imgUrl.value = ""
     
-    todoForm.title.value = ""
-    todoForm.price.value = ""
-    todoForm.description.value = ""
-    todoForm.imgUrl.value = ""
-    
-    axios.post("https://api.vschool.io/diane/todo", newTodo)
-        .then(res => getData(res))
-        .catch(err => console.log(err))
-})
+     axios.post("https://api.vschool.io/diane/todo", newTodo)
+         .then(res => getData(res))
+         .catch(err => console.log(err))
+ })
 
 
