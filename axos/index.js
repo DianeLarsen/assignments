@@ -17,7 +17,10 @@ console.log(data)
         const checkbox = document.createElement('input');
         checkbox.classList.add("checkedbox")
         const label = document.createElement('label');
-        const labelTitle = document.createElement('label');
+        const labelTitle = document.createElement('button');
+        labelTitle.classList.add("collapsible")
+        const innerDiv = document.createElement('div')
+        innerDiv.classList.add("content")
         const labelPrice = document.createElement('label');
         const labelDes = document.createElement('label');
         const lineBreak = document.createElement('br');
@@ -44,31 +47,33 @@ console.log(data)
             labelPrice.appendChild(document.createTextNode(`  ${data[i].price }  `));
             labelDes.appendChild(document.createTextNode(data[i].description));
             // links label and checkbox together
-            
+            li.append(edit, del);
             label.appendChild(labelTitle);
             
-            label.appendChild(labelPrice);
             
-            label.appendChild(labelDes);
+            innerDiv.appendChild(labelPrice);
             
+            innerDiv.appendChild(labelDes);
+            label.appendChild(innerDiv)
 
             li.appendChild(checkbox);
+            
             li.appendChild(label);
-          
+            li.appendChild(edit);
+            li.appendChild(del);
             imgSpan.appendChild(imgShow);
             imgShow.src = data[i].imgUrl || ""
             
-                li.appendChild(imgSpan);
+            innerDiv.appendChild(imgSpan);
             
             //creates a linebreak for clarity
-            li.append(edit, del);
             
             //document.getElementById("list").append(li);
             todolist.appendChild(li);
             todolist.append(lineBreak);
 
             edit.classList.add("edit"); 
-
+            del.classList.add("del");
             del.addEventListener("click", () => {
                 li.remove();
                 axios.delete(`https://api.vschool.io/diane/todo/${data[i]._id}`)
@@ -109,6 +114,7 @@ console.log(data)
                 formInsert.appendChild(urlLabel);
                 formInsert.appendChild(inputImg);
                 
+                
             label.replaceWith(formInsert);
             edit.textContent = "save";
 
@@ -134,14 +140,25 @@ console.log(data)
             });
            
             })
-    
+            const coll = document.getElementsByClassName("collapsible");
+           
+                coll[i].addEventListener("click", function() {
+                  this.classList.toggle("active");
+                  let content = this.nextElementSibling;
+                  if (content.style.display === "block") {
+                    content.style.display = "none";
+                  } else {
+                    content.style.display = "block";
+                  }
+                });
+              }
             
               };     
                 
            //document.querySelector("#display-image").style.backgroundImage = `url(${data[i].img})`;
             //console.log(imgShow)
             
-    }
+    
 function checked(id, status){
     axios.put(`https://api.vschool.io/diane/todo/${id}`, {completed: status})
     .then(res => console.log(res))
@@ -183,3 +200,7 @@ const todoForm = document["todo-form"]
  })
 
 
+
+
+ 
+ 
