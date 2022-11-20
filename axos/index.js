@@ -6,7 +6,7 @@ function getData(){
 }
 
 
-// LISTS THE TODO TITLES TO THE DOM
+// LISTS TO THE DOM
 function listData(data){
 
     clearList()
