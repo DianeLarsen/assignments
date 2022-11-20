@@ -5,6 +5,7 @@
 label {
     font-size: 1.5em;
     
+    
   }
   input.checkedbox{
   animation: pop .3s ease;
@@ -16,12 +17,13 @@ label {
   input.checkedbox:checked{
     width:15px;
     height:15px;
+    background-color: aqua;
   }
 
   button{
     margin: 7px;
     /* display: block; */
-
+    display: inline-block;
   }
   
   img{
@@ -34,34 +36,52 @@ label {
   li{
     list-style: none;
     font-size: x-small;
-  }
+    display: inline-block;
+    text-align: center;
+    }
   .collapsible {
     background-color: #777;
     color: white;
     cursor: pointer;
-    padding: 18px;
-    width: 20%;
+    /* padding: 18px; */
+    width: 100px;
     border: none;
-    text-align: left;
     outline: none;
-    font-size: 15px;
+    /* font-size: 20px; */
+    height: 50px;
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
   }
-  
+  h2{
+    height: 50px;
+    display: inline-block;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
+  }
   .active, .collapsible:hover {
     background-color: #555;
   }
   
   .content {
-    padding: 0 18px;
-    margin-left: 25px;
+    padding: 0;
+   
     display: none;
-    overflow: hidden;
+    overflow:hidden;
     background-color: #f1f1f1;
-    width: 15%;
+    width: 100px;
     height: auto;
+   
   }
   input.checkedbox:checked + label {
-    color:red;
     text-decoration: line-through;
-
+    text-decoration-color:red;
+    text-decoration-thickness: 3px;
+  }
+  input.checkedbox:checked + .collapsible {
+    text-decoration: line-through;
+    text-decoration-color:red;
+    text-decoration-thickness: 3px;
   }

@@ -9,7 +9,7 @@ const checkBox = document.getElementById("checkbox")
 
 // LISTS TO THE DOM
 function listData(data){
-console.log(data)
+//console.log(data)
     clearList()
 
     for(let i = 0; i < data.length; i++){
@@ -17,7 +17,7 @@ console.log(data)
         const checkbox = document.createElement('input');
         checkbox.classList.add("checkedbox")
         const label = document.createElement('label');
-        const labelTitle = document.createElement('button');
+        const labelTitle = document.createElement('h2');
         labelTitle.classList.add("collapsible")
         const innerDiv = document.createElement('div')
         innerDiv.classList.add("content")
@@ -35,11 +35,12 @@ console.log(data)
 
             checkbox.type = "checkbox";
             checkbox.checked = data[i].completed
-          
+            
             checkbox.addEventListener("click", () => {
                 checked(data[i]._id,checkbox.checked)
+                
             })
-
+ 
 
             // adds text to label element
         
@@ -145,10 +146,10 @@ console.log(data)
                 coll[i].addEventListener("click", function() {
                   this.classList.toggle("active");
                   let content = this.nextElementSibling;
-                  if (content.style.display === "block") {
+                  if (content.style.display === "inline-block") {
                     content.style.display = "none";
                   } else {
-                    content.style.display = "block";
+                    content.style.display = "inline-block";
                   }
                 });
               }
