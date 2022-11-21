@@ -12,7 +12,10 @@ label {
   width:20px;
   height:20px;
   transition: linear .5s;
- 
+  display: inline-flex;
+  flex-direction: column;  
+  justify-content:space-around;
+  
   }
   input.checkedbox:checked{
     width:15px;
@@ -51,7 +54,11 @@ label {
     height: 50px;
     /* display: flex;
     justify-content: center; */
-    text-align: center;
+    
+    display:inline-flex;
+    justify-content: center;
+    padding: 5px;
+
   }
   h2{
     height: 50px;
@@ -59,26 +66,30 @@ label {
     margin-block-start: 10px;
     margin-block-end: 10px;
     margin-inline-start: 10px;
-    margin-inline-end: 10px;
+    
   }
   .active, .collapsible:hover {
     background-color: #555;
   }
   
   .content {
-    padding: 0;
+    padding: 5px;
    
     display: none;
     overflow:hidden;
     background-color: #f1f1f1;
-    width: 100px;
-    height: auto;
-   
+    width: auto;
+    height: 50px;
+    
+    justify-self: right;
+
+    
   }
   input.checkedbox:checked + label {
     text-decoration: line-through;
     text-decoration-color:red;
     text-decoration-thickness: 3px;
+    
   }
   input.checkedbox:checked + .collapsible {
     text-decoration: line-through;

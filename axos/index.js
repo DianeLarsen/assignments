@@ -146,10 +146,10 @@ function listData(data){
                 coll[i].addEventListener("click", function() {
                   this.classList.toggle("active");
                   let content = this.nextElementSibling;
-                  if (content.style.display === "inline-block") {
+                  if (content.style.display === "inline-flex") {
                     content.style.display = "none";
                   } else {
-                    content.style.display = "inline-block";
+                    content.style.display = "inline-flex";
                   }
                 });
               }
