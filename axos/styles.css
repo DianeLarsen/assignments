@@ -7,6 +7,7 @@ label {
     
     
   }
+ 
   input.checkedbox{
   animation: pop .3s ease;
   width:20px;
@@ -24,7 +25,14 @@ label {
   input.checkedbox:checked{
     width:15px;
     height:15px;
+    display: inline-grid;
+    place-content: center;
+
     background-color: aqua;
+    
+  }
+  input[type="checkbox"]{
+    accent-color: rgb(160, 99, 184);
     
   }
 
@@ -37,10 +45,20 @@ label {
   
   img{
     width: 50px;
-    height: auto;
+    height: 50px;
     border: 1px solid black;
     background-position: center;
     background-size: cover;
+  }
+  .labelPrice{
+    grid-area: a;
+  }
+  .labelDes{
+    grid-area: b;
+  }
+  .imgShow{
+    grid-area: c;
+    
   }
   li{
     list-style: none;
@@ -52,15 +70,10 @@ label {
     background-color: #777;
     color: white;
     cursor: pointer;
-    /* padding: 18px; */
     width: 100px;
     border: none;
     outline: none;
-    /* font-size: 20px; */
     height: 50px;
-    /* display: flex;
-    justify-content: center; */
-    
     display:inline-flex;
     justify-content: center;
     padding: 5px;
@@ -88,18 +101,16 @@ label {
     background-color: #f1f1f1;
     width: auto;
     height: 50px;
-    
-    justify-self: right;
-
-    
+    grid-template-columns:  2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'a c'
+                          'b c';
   }
   input.checkedbox:checked + label {
-    color:red;
     text-decoration: line-through;
-
-  }
-  input.checkedbox:checked + .collapsible {
-    text-decoration: line-through;
-    text-decoration-color:red;
+    text-decoration-color:rgb(160, 99, 184);
     text-decoration-thickness: 3px;
+  }
+  .checkedbox:checked ~ h2.collapsible {
+    background-color: rgb(160, 99, 184);
   }

@@ -22,10 +22,13 @@ function listData(data){
         const innerDiv = document.createElement('div')
         innerDiv.classList.add("content")
         const labelPrice = document.createElement('label');
+        labelPrice.classList.add("labelPrice")
         const labelDes = document.createElement('label');
+        labelDes.classList.add("labelDes")
         const lineBreak = document.createElement('br');
         const imgSpan = document.createElement('span');
         const imgShow = document.createElement('img');
+        imgSpan.classList.add("imgShow")
         const edit = document.createElement("button");
         const del = document.createElement("button");
         const li = document.createElement("li")
@@ -101,7 +104,8 @@ function listData(data){
                 inputPrice.value = labelPrice.textContent;
                 inputDes.value = labelDes.textContent;
                 if (imgShow.src === "http://127.0.0.1:5500/"){
-                        inputImg.value = "";   
+                        inputImg.value = ""
+                        imgShow[i].style.display = "none";;   
                 } else{
                 inputImg.value = imgShow.src;
                 }
@@ -114,11 +118,14 @@ function listData(data){
                 formInsert.appendChild(inputDes);
                 formInsert.appendChild(urlLabel);
                 formInsert.appendChild(inputImg);
+                const hide = document.getElementsByClassName("checkedbox")
                 
                 
             label.replaceWith(formInsert);
+            hide[i].style.display = "none";
             edit.textContent = "save";
-
+                //bug 2 edits but only one save
+                //maybe add in a save all or delete all option?
             edit.addEventListener("click", () => {
                
                 labelTitle.textContent = inputTitle.value;
@@ -132,12 +139,15 @@ function listData(data){
                     imgUrl: inputImg.value
                 } 
 
-                //console.log(updateTodo)
+                
                  axios.put(`https://api.vschool.io/diane/todo/${data[i]._id}`, updateTodo)
                      .then(res => getData(res))
                      .catch(err => console.log(err))
                 formInsert.replaceWith(label);
+                hide[i].style.display = "flex";
                 edit.textContent = "edit";
+
+                
             });
            
             })
@@ -146,12 +156,14 @@ function listData(data){
                 coll[i].addEventListener("click", function() {
                   this.classList.toggle("active");
                   let content = this.nextElementSibling;
-                  if (content.style.display === "inline-flex") {
+                  if (content.style.display === "inline-grid") {
                     content.style.display = "none";
                   } else {
-                    content.style.display = "inline-flex";
+                    content.style.display = "inline-grid";
                   }
                 });
+
+
               }
             
               };     
