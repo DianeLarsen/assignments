@@ -67,7 +67,13 @@ function listData(data){
             li.appendChild(del);
             imgSpan.appendChild(imgShow);
             imgShow.src = data[i].imgUrl || ""
-            
+
+            //work on remvoing image if no url added
+            if(imgShow.src == ""){
+                imgShow.style.display = "none";
+            }else{
+                imgShow.style.display = "flex";
+            }
             innerDiv.appendChild(imgSpan);
             
             //creates a linebreak for clarity
@@ -105,7 +111,6 @@ function listData(data){
                 inputDes.value = labelDes.textContent;
                 if (imgShow.src === "http://127.0.0.1:5500/"){
                         inputImg.value = ""
-                        imgShow[i].style.display = "none";;   
                 } else{
                 inputImg.value = imgShow.src;
                 }
