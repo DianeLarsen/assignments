@@ -4,7 +4,7 @@
 
 body {
     margin: 0px;
-    font-family: 'Inter', sans-serif;
+    font-family:"Open Sans";
 }
 nav {
     display:flex;
@@ -22,7 +22,7 @@ nav {
 
 }
 a{
-    font-family:"Open Sans";
+   
     text-decoration: none;
     color: rgba(0, 0, 0, 0.9);
     /* font-family: "Open Sans"; */
@@ -42,12 +42,26 @@ a{
     cursor: pointer;
 }
 .header{
-    width:auto;
-    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 img{
     max-width: 100%;
     height: auto;
-
+    filter: brightness(60%);
+}
+span{
+    font-size: 24px;
+}
+h1{
+    font-weight: 800;
+    line-height: 1.2;
+    font-size: 3rem;
+}
+.imgtext{
+    position: absolute;
+    color: white;
+    
 }
 
