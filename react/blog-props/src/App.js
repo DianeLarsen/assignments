@@ -2,14 +2,14 @@ import React from "react"
 import Navbar from "./Navbar.js"
 import Header from "./Header.js"
 import BlogPost from "./BlogPost.js"
-import BlogList from "./BlogList.js"
+
 import data from "./data.js"
 import './App.css';
 
 export default function App() {
-    const cards = data.map(item => {
+    const blogpost = data.map(item => {
         return (
-            <BlogList
+            <BlogPost
                 key={item.title}
                 {...item}
                 
@@ -21,8 +21,14 @@ export default function App() {
              
             <Navbar />
             <Header />
-            <div>"BlogList BlogList"</div>
-               <BlogPost/>"
+            <section className="blog-list">
+                {blogpost}
+            </section>
+            
+            <a className="olderposts" href="#!">
+                Older Posts →
+            </a>
+            <hr />
             <footer>Copyright © Your Website 2022</footer> 
         </div>
     )    

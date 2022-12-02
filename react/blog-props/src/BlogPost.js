@@ -3,19 +3,18 @@ import React from "react"
 export default function BlogPost(props) {
     return (
         <div className="card">
-                {/* <img src={props.imageUrl} className="card--image" />
-                <div className="blurb">
-                <div className="card--stats">
-                    <img src="./Fill219.png" className="card--star" />
-                    <h4>{props.location}</h4>
-                    <a href={props.googleMapsUrl} className= "gray">View on Google Maps</a>
-                </div>    
-                    <h2>{props.title}</h2>
-                    
-                    <h3 >{props.startDate} - {props.endDate}</h3>
-                    <p>{props.description}</p>
-                </div>
-             */}
+            <a href="https://startbootstrap.github.io/startbootstrap-clean-blog/post.html" className="titleblurb">
+                <h2>{props.title}</h2>
+                {props.subTitle && <h3>{props.subTitle}</h3>}
+            </a>
+            <p className="bloginfo">
+                Posted by 
+                <a href="#!">{props.author}</a>
+                 on  {props.date}
+            </p>
+
+            
+            <hr />
         </div>
     )
 }
