@@ -57,7 +57,8 @@ nav>a{
 img{
     object-fit: cover;
     width: 100%;
-    max-height: 400px;
+    height: 350px;
+    max-height: 500px;
     
     filter: brightness(60%);
 }
@@ -84,7 +85,7 @@ h1{
     padding-right: 24px;
 }
 .blog-list{
-
+    margin-top: 75px;
     padding-bottom: 16px;
 }
 h2{
@@ -116,8 +117,9 @@ h3{
     
 }
 hr {
-    background-color: #dee2e6;
-    opacity: 1;
+    /* background-color: #6c757d; */
+    color: #6c757d;
+    opacity: .30;
     height: 1px;
     margin-top: 24;
     margin-bottom: 24;
@@ -162,13 +164,19 @@ p>a:hover{
 }
 .olderposts{
     letter-spacing: 0.0625em;
+
+    padding-right: 24px;
+    display: flex;
+    justify-content: flex-end !important;
+    
+
+}
+.olderbutton{
     color: #fff;
     background-color: #0085A1;
     border-color: #0085A1;
-    display: inline-block;
-    
     font-family: "Open Sans";
-    width: 200px;
+    /* width: 200px; */
     font-weight: 800;
     line-height: 1.5;
     text-align: center;
@@ -176,16 +184,18 @@ p>a:hover{
     cursor: pointer;
     user-select: none;
     border: 1px solid transparent;
-    padding: 1rem;
+    padding: 1rem 1.75rem;
+    /* padding-right: 0;
+    padding-left: 0; */
     font-size: 0.875rem;
     border-radius: 0;
     text-decoration: none;
     text-transform: uppercase !important;
     margin-bottom: 16px;
     margin-top: 0px;
-
+    letter-spacing: 0.0625em;
 }
-.olderposts:hover{
+.olderbutton:hover{
     
     border: 1px solid transparent;
   
@@ -195,4 +205,54 @@ p>a:hover{
     border-color: #006a81;
     box-shadow: 0 0 0 0.25rem rgba(38, 151, 175, 0.5);
 }
+.socialfooter{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   color: white;
+   padding-inline-start: 0px;
+   margin-block-start: 1.75em;
+    margin-block-end: .5em;
+    font-size: 25px;
+    list-style: none;
+    
+}
+ul{
+    display: flex;
+    justify-content: space-between;
+   /* align-items: center; */
+   
+}
+li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#212529;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    line-height: .05em;
+    cursor: pointer;
+    margin-right: 25px;
+}
+/* .fa-brands{
+    width: 50px;
+} */
+li:hover{
+    background-color: #0085A1;
+}
+h6{
+    color: #6c757d ;
+    font-family: Lora;
+    text-align: center ;
+    font-style: italic ;
+    font-size: 17px;
+    opacity: 1;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-block-start: .5em;
+    margin-block-end: 2.75em;
+}
+
 
