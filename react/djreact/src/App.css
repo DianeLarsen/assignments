@@ -1,0 +1,19 @@
+.coloredSquareOne{
+  max-width: 100%;
+  border: 2px solid black;
+}
+
+.coloredSquareOne:after{
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+  
+}
+.colorSquares{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "a b"
+                       "c d" ;
+  gap: 10px;
+}
