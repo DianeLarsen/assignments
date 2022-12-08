@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Square from "./components/Square";
 // import Color from './Color';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       } else if (c === "white") {
         return "black";
       }
+      return c
     });
     setColors(colorChange);
   }
@@ -95,27 +97,32 @@ function App() {
     });
     setColors(changeBlue);
   }
+//   let myAudio = document.getElementById("myAudio");
+//   document.addEventListener('load', function(){
+    
+    
+//     myAudio.onplaying = function() {
+//       isPlaying = true;
+//     };
+//     myAudio.onpause = function() {
+//       isPlaying = false;
+//     };
+// });
 
+// var isPlaying = false;
+
+// function togglePlay() {
+//     if (isPlaying) {
+//         myAudio.pause()
+//     } else {
+//         myAudio.play();
+//     }
+// }
+  const squares = colors.map((color) => <Square color={color} />);
   return (
     <div className="App">
-      <div className="colorSquares">
-        <div
-          className="coloredSquareOne"
-          style={{ backgroundColor: colors[0] }}
-        />
-        <div
-          className="coloredSquareOne"
-          style={{ backgroundColor: colors[1] }}
-        />
-        <div
-          className="coloredSquareOne"
-          style={{ backgroundColor: colors[2] }}
-        />
-        <div
-          className="coloredSquareOne"
-          style={{ backgroundColor: colors[3] }}
-        />
-      </div>
+      <div className="colorSquares">{squares}</div>
+
       <div>
         <button onClick={setBlack}>DJ Small</button>
         <button onClick={setPurple}>Party DJ </button>
@@ -125,7 +132,8 @@ function App() {
         <button onClick={setTwo}>Big DJ two</button>
         <button onClick={setThree}>Big DJ three</button>
         <button onClick={setFour}>Big DJ four</button>
-        <button onClick={setBlueRight}>Make Noise</button>
+        <audio id="myAudio" src="./RidinDirty.mp3" type="audio/mp3" controls >Play</audio>
+        {/* <a onClick={togglePlay}>Click here to hear.</a> */}
       </div>
     </div>
   );
