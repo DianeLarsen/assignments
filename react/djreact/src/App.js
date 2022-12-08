@@ -4,14 +4,20 @@ import "./App.css";
 
 function App() {
   const [colors, setColors] = useState(["white", "white", "white", "white"]);
-  //if clicked turns all black or white depending on if
+  //need to make each turn black or white depending, if its not black or white it turns black or white but if its white
   function setBlack() {
-    if (colors[0] !== "black") {
-      setColors(["black", "black", "black", "black"]);
-    } else if (colors[0] !== "white") {
-      setColors(["white", "white", "white", "white"]);
-    }
+    const colorChange = colors.map((c) => {
+      if (c !== "white" && c !== "black") {
+        return "black";
+      } else if (c === "black") {
+        return "white";
+      } else if (c === "white") {
+        return "black";
+      }
+    });
+    setColors(colorChange);
   }
+
   //if clicked turns top 2 purple
   function setPurple() {
     const changePurple = colors.map((c, i) => {
@@ -19,20 +25,17 @@ function App() {
         // changes only first 2 indexes
         return "purple";
       } else {
-        // The rest haven't changed
         return c;
       }
     });
     setColors(changePurple);
   }
-  //doesnt work
+
   function setBlueRight() {
     const changeBlue = colors.map((c, i) => {
       if (i === 3) {
-        // changes only first 2 indexes
         return "blue";
       } else {
-        // The rest haven't changed
         return c;
       }
     });
@@ -41,10 +44,8 @@ function App() {
   function setBlueLeft() {
     const changeBlue = colors.map((c, i) => {
       if (i === 2) {
-        // changes only first 2 indexes
         return "blue";
       } else {
-        // The rest haven't changed
         return c;
       }
     });
@@ -56,18 +57,17 @@ function App() {
         // changes only first 2 indexes
         return "green";
       } else {
-        // The rest haven't changed
         return c;
       }
     });
     setColors(changeBlue);
-  }function setTwo() {
+  }
+  function setTwo() {
     const changeBlue = colors.map((c, i) => {
       if (i === 1) {
         // changes only first 2 indexes
         return "pink";
       } else {
-        // The rest haven't changed
         return c;
       }
     });
@@ -79,7 +79,6 @@ function App() {
         // changes only first 2 indexes
         return "orange";
       } else {
-        // The rest haven't changed
         return c;
       }
     });
@@ -91,7 +90,6 @@ function App() {
         // changes only first 2 indexes
         return "red";
       } else {
-        // The rest haven't changed
         return c;
       }
     });
