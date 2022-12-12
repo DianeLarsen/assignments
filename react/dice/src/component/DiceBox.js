@@ -5,14 +5,16 @@ import Dice3 from "../assets/3.png";
 import Dice4 from "../assets/4.png";
 import Dice5 from "../assets/5.png";
 import Dice6 from "../assets/6.png";
+import DiceNull from "./null.png";
+import Die from "./Die";
 
 export default function DiceBox() {
   const [numbers, setNumbers] = useState([
-    { key: 0, dice: null, lockStatus: false },
-    { key: 1, dice: null, lockStatus: false },
-    { key: 2, dice: null, lockStatus: false },
-    { key: 3, dice: null, lockStatus: false },
-    { key: 4, dice: null, lockStatus: false },
+    { id: 0, dice: DiceNull, lockStatus: false },
+    { id: 1, dice: DiceNull, lockStatus: false },
+    { id: 2, dice: DiceNull, lockStatus: false },
+    { id: 3, dice: DiceNull, lockStatus: false },
+    { id: 4, dice: DiceNull, lockStatus: false },
   ]);
 
   window.onload = createNew;
@@ -20,42 +22,28 @@ export default function DiceBox() {
   function createNew() {
     const numChange = numbers.map((num) => {
       let roll = Math.floor(Math.random() * 6) + 1;
-      // console.log("Lock Status:  "+ JSON.stringify(num.lockStatus))
 
-      console.log("Lock Status:  " + JSON.stringify(num.lockStatus));
-      let toggle = document.getElementById(num.key);
-      if (
-        toggle.style.borderColor === "rgb(0, 0, 255)" 
-      ) {
-        num.lockStatus = true
-        
-      } else {
-        num.lockStatus = false
-      }
       if (num.lockStatus === true) {
-        return num
+        return num;
       } else {
-
-      if (roll === 1) {
-        num.dice = Dice1;
-      } else if (roll === 2) {
-        num.dice = Dice2;
-      } else if (roll === 3) {
-        num.dice = Dice3;
-      } else if (roll === 4) {
-        num.dice = Dice4;
-      } else if (roll === 5) {
-        num.dice = Dice5;
-      } else if (roll === 6) {
-        num.dice = Dice6;
+        if (roll === 1) {
+          num.dice = Dice1;
+        } else if (roll === 2) {
+          num.dice = Dice2;
+        } else if (roll === 3) {
+          num.dice = Dice3;
+        } else if (roll === 4) {
+          num.dice = Dice4;
+        } else if (roll === 5) {
+          num.dice = Dice5;
+        } else if (roll === 6) {
+          num.dice = Dice6;
+        }
+        console.log(num);
+        return num;
       }
-      
-      
-      return num;
-    }
     });
-    //console.log("check numChange:  " + JSON.stringify(numChange))
-  
+
     setNumbers(numChange);
   }
 
@@ -63,65 +51,61 @@ export default function DiceBox() {
   function changeTextBtn() {
     if (btn.innerHTML === "Roll to Start") {
       btn.innerHTML = "2 Rolls left";
+      createNew();
     } else if (btn.innerHTML === "2 Rolls left") {
       btn.innerHTML = "1 Roll left";
+      createNew();
     } else if (btn.innerHTML === "1 Roll left") {
       btn.innerHTML = "Reset to play again";
-    } else if (btn.innerHTML = "Reset to play again"){
-       
-        for (let i = 0; i < 5; i++) {
-          let toggle = document.getElementById(i);
-          toggle.style.borderColor = "transparent";
-       }
-       btn.innerHTML = "Roll to Start";
+      createNew();
+    } else if (btn.innerHTML === "Reset to play again") {
+      btn.innerHTML = "Roll to Start";
+      clearSelection();
     }
   }
-  function onBtnClick() {
-    createNew();
-    changeTextBtn();
+  function clearSelection() {
+    const clearDice = numbers.map(
+      (item) => {
+        return { ...item, dice: DiceNull, lockStatus: false };
+      }
+   
+    );
+    setNumbers(clearDice);
+  }
+  function toggle(id) {
+    setNumbers((prevNumbers) => {
+      const newNumbers = [];
+      for (let i = 0; i < prevNumbers.length; i++) {
+        const currentNumbers = prevNumbers[i];
+        if (currentNumbers.id === id) {
+          const updatedNumbers = {
+            ...currentNumbers,
+            lockStatus: !currentNumbers.lockStatus,
+          };
+          newNumbers.push(updatedNumbers);
+        } else {
+          newNumbers.push(currentNumbers);
+        }
+      }
+      return newNumbers;
+    });
   }
 
-  function selectDie(event) {
-  
-    const id = event.target.id;
-    let toggle = document.getElementById(id);
-    if (toggle.style.borderColor === "rgb(0, 0, 255)") {
-      toggle.style.borderColor = "transparent";
-      
-    } else {
-      toggle.style.border = "2px solid #0000FF";
-    }
-    
-  
-    
+  const die = numbers.map((item) => (
+    <Die
+      key={item.id}
+      lockStatus={item.lockStatus}
+      imgDice={item.dice}
+      toggle={toggle}
+      id={item.id}
+    />
+  ));
 
-  }
-
-
-
-  console.log("Lock Status 0:  "+ JSON.stringify(numbers[0].lockStatus))
-  console.log("Lock Status 1:  "+ JSON.stringify(numbers[1].lockStatus))
-  console.log("Lock Status 2:  "+ JSON.stringify(numbers[2].lockStatus))
-  console.log("Lock Status 3:  "+ JSON.stringify(numbers[3].lockStatus))
-  console.log("Lock Status 4:  "+ JSON.stringify(numbers[4].lockStatus))
-  //console.log("Dice results: "+ JSON.stringify(numbers[0].dice))
-//
   return (
     <div className="results">
-      <div className="disNum">
-        {numbers.map((item, index) => (
-          <img
-            key={index}
-            src={item.dice}
-            id={index}
-            className="die"
-            alt="Die"
-            onClick={selectDie}
-          />
-        ))}
-      </div>
+      <div className="disNum">{die}</div>
 
-      <button id="btn" onClick={onBtnClick}>
+      <button id="btn" onClick={changeTextBtn}>
         Roll to Start
       </button>
     </div>
