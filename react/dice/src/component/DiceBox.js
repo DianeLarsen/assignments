@@ -39,7 +39,7 @@ export default function DiceBox() {
         } else if (roll === 6) {
           num.dice = Dice6;
         }
-        console.log(num);
+        
         return num;
       }
     });
@@ -74,20 +74,10 @@ export default function DiceBox() {
   }
   function toggle(id) {
     setNumbers((prevNumbers) => {
-      const newNumbers = [];
-      for (let i = 0; i < prevNumbers.length; i++) {
-        const currentNumbers = prevNumbers[i];
-        if (currentNumbers.id === id) {
-          const updatedNumbers = {
-            ...currentNumbers,
-            lockStatus: !currentNumbers.lockStatus,
-          };
-          newNumbers.push(updatedNumbers);
-        } else {
-          newNumbers.push(currentNumbers);
-        }
-      }
-      return newNumbers;
+      return prevNumbers.map((number)=>{
+        return number.id === id ? {...number, lockStatus: !number.lockStatus} : number
+      })
+      
     });
   }
 
