@@ -1,0 +1,44 @@
+form {
+  display: inline-flex;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  border-radius: 7px;
+  justify-content: center;
+}
+input {
+  width: 40%;
+  margin: 10px;
+}
+#first-name,
+#last-name {
+  margin-top: 20px;
+}
+textarea, p {
+  width: 85%;
+  margin: 10px;
+  height: 75px;
+}
+button {
+  margin-bottom: 10px;
+}
+ul{
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+li{
+  width: 50%;
+}
+p{
+  border: 2px solid black;
+}
+.display{
+    display: inline-flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+    border-radius: 7px;
+    justify-content: center;
+    margin-top: 10px;
+}
+h3{
+ 
+}
