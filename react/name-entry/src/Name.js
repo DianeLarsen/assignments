@@ -1,30 +1,27 @@
 import React from "react";
 
 export default function Name() {
-    //let currentName 
   const [formName, setFormName] = React.useState([]);
-  let name
-  console.log(formName.name)
+
+  console.log(formName);
   function handleChange(event) {
-    
-    const {value} = event.target;
-    //currentName = formName.name
-    
-    setFormName((prevFormName) => {
-      return [
-        ...prevFormName,
-        value
-      ];
-    });
+    const { value } = event.target;
+
+    document.getElementById("confirmName").textContent = value;
+    setFormName((prevFormName) => [...prevFormName, value]);
   }
-  const enteredName = "Cow"
+
   function handleSubmit(event) {
-    event.preventDefault()
-    return <li>{item} </li>}
-    // submitToApi(formData)
-    //console.log(formName)
-    
-}
+    event.preventDefault();
+    document.getElementById("confirmName").textContent = "";
+    for (let i = formName.length - 1; i < formName.length; i++) {
+      var ul = document.getElementById("list");
+      var li = document.createElement("li");
+      li.appendChild(document.createTextNode([formName[i]]));
+      ul.appendChild(li);
+    }
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -35,8 +32,8 @@ export default function Name() {
         value={formName.name}
       />
       <button>Submit</button>
-      <h1>{formName.name}</h1>
-      <ol>{name}</ol>
+      <h1 id="confirmName"> </h1>
+      <ol id="list"></ol>
     </form>
   );
 }
