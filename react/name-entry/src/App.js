@@ -1,5 +1,6 @@
-
 import './App.css';
+import React from "react"
+import Name from "./Name"
 
 function App() {
   const {name, setName} = []
@@ -14,7 +15,7 @@ function App() {
         <button></button> 
         {/* when button is clicked an li will apear below with the name in it and each name will be added to the list  */}
         <ol>
-          {name}
+          {name}<Name />
         </ol>
     </div>
   );
