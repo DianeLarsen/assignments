@@ -1,22 +1,19 @@
+export default function Display(props) {
+    // console.log("Display: props.fname: "+ props.fName)
+  return (
+    <div className="display">
+      <div className="heading">
+        <h3>Badge:</h3>
+      </div>
+      <ul>
+        <h4>Name: {props.fName} {props.lName} </h4>
 
-
-export default function Display(){
-    return (
-        <div className="display">
-            <h3>
-                Badge:
-            </h3>
-            <ul>
-                <h4>Name: </h4> 
-
-                <h4>Phone: </h4>
-                <h4>Place of birth: </h4>
-                <h4>Favorite food: </h4>
-                <h4>Email: </h4>
-                <p>
-                    comments
-                </p>
-            </ul>
-        </div>
-    )
+        <h4>Phone: {props.phone}</h4>
+        <h4>Place of birth: {props.birthPlace}</h4>
+        <h4>Favorite food: {props.favFood}</h4>
+        <h4>Email: {props.email}</h4>
+        <p>{props.aboutSelf}</p>
+      </ul>
+    </div>
+  );
 }
