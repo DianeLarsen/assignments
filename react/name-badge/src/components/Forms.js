@@ -8,6 +8,7 @@ function restrictSym(evt) {
       evt.preventDefault();
   }
 }
+
   return (
     
     <form className="form" onSubmit={props.handleSubmit}>
