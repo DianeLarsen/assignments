@@ -1,10 +1,11 @@
 import React from "react"
 import "./App.css"
+import axios from 'axios';
 
 export default function App() {
     const [colors, setColors] = React.useState({})
     const [count, setCount] = React.useState(1)
-    
+   // console.log(`#${colors.data.new_color}`)
     /**
      * Challenge: Combine `count` with the request URL
      * so pressing the "Get Next Character" button will
@@ -14,17 +15,21 @@ export default function App() {
      */
     
     React.useEffect(function() {
-        console.log("Effect ran")
-        console.log(`#${colors.new_color}`)
-        fetch(`https://www.colr.org/json/color/random?timestamp=${new Date().getTime()}`)
-            .then(res => res.json())
+      axios.get(`https://www.colr.org/json/color/random?timestamp=${new Date().getTime()}`)
+            //.then(res => res.json())
             .then(data => setColors(data))
+            .catch(error => console.log(error)) 
+        
+        // fetch(`https://www.colr.org/json/color/random?timestamp=${new Date().getTime()}`)
+        //     .then(res => res.json())
+        //     .then(data => setColors(data))
+        //     .catch(error => console.log(error))
     }, [count])
     
     return (
-        <div style={{backgroundColor: `#${colors.new_color}`}}>
+        <div style={{backgroundColor: `#${colors.data.new_color}`}}>
             <h2>The count is {count}</h2>
-            <button onClick={() => setCount(prevCount => prevCount + 1)}>Get Next Character</button>
+            <button onClick={() => setCount(prevCount => prevCount + 1)}>Get Next Color</button>
             <pre>{JSON.stringify(colors, null, 2)}</pre>
         </div>
     )
