@@ -2,6 +2,9 @@ import React from "react"
 
 export default function Display(){
     return(
-        <div>Test Box</div>
+        <div>
+            <div className="color-box"></div>
+            <textarea readOnly value="Text area text goes here"/>
+        </div>
     )
 }
