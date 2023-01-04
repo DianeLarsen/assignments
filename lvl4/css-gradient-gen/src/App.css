@@ -1,12 +1,11 @@
-.color-picker{
+.color-picker {
   display: inline-flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
-
 }
 
-.display-box{
+.display-box {
   height: 250px;
   width: 50%;
   border: 2px solid black;
@@ -15,26 +14,27 @@
   justify-content: center;
   align-items: center;
 }
-.color-box{
+.color-box {
   height: 60%;
   width: 90%;
   border-radius: 2px;
   margin-bottom: 8px;
   border: 1px solid black;
+  background: linear-gradient(50deg, #ffffff, #000000);
 }
-.options-box{
+.options-box {
   height: 250px;
   width: 50%;
   border: 2px solid black;
 }
-textarea{
+textarea {
   height: 30%;
   width: 88%;
   border-radius: 5px;
   color: palevioletred;
   background-color: black;
 }
-.angle-input{
-  width:fit-content;
+.angle-input {
+  width: fit-content;
   max-width: 30px;
 }
