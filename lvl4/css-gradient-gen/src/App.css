@@ -1,10 +1,40 @@
 .color-picker{
   display: inline-flex;
   align-items: center;
+  width: 100%;
+  justify-content: space-between;
 
 }
+
+.display-box{
+  height: 250px;
+  width: 50%;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .color-box{
-  height: 50px;
-  width: 50px;
-  background: linear-gradient(50deg, #FFFF00 , #000000);
+  height: 60%;
+  width: 90%;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  border: 1px solid black;
+}
+.options-box{
+  height: 250px;
+  width: 50%;
+  border: 2px solid black;
+}
+textarea{
+  height: 30%;
+  width: 88%;
+  border-radius: 5px;
+  color: palevioletred;
+  background-color: black;
+}
+.angle-input{
+  width:fit-content;
+  max-width: 30px;
 }
