@@ -1,32 +1,60 @@
 import React from "react";
+import Color from "./Color";
 
 export default function Options(props) {
-
   const handleChange1 = (event) => {
     // 👇 Get input value from "event"
-    props.setColor1(event.target.value)
-   
+    props.setColor1(event.target.value);
   };
   const handleChange2 = (event) => {
     // 👇 Get input value from "event"
-    props.setColor2(event.target.value)
-    
+    props.setColor2(event.target.value);
   };
   const handleChangePct = (event) => {
     // 👇 Get input value from "event"
-    props.setPct(event.target.value)
+    props.setPct(event.target.value);
   };
 
   return (
     <div className="options-box">
-      <ul>
-        <li>Color 1<span>{props.color1}</span>
-        <input type="color" id="input1" name="color" value={props.color1}  onInput={handleChange1} /></li>
+      <div className="color-choice">
+        <h3 className="label">Color 1</h3>
+        <span className="color-text">{props.color1}</span>
+        <input
+          type="color"
+          id="input1"
+          className="color-palette"
+          name="color"
+          value={props.color1}
+          onInput={handleChange1}
+        />
+      </div>
+      <div className="color-choice">
+        <h3 className="label">Color 2</h3>
+        <span className="color-text">{props.color2}</span>
+        <input
+          type="color"
+          id="input2"
+          className="color-palette"
+          name="color"
+          value={props.color2}
+          onInput={handleChange2}
+        />
+      </div>
+      <Color handleChange2={handleChange2} color1={props.color1} color2={props.color2} colors={props.colors} setColors={props.setColors}/>
+      <div className="color-choice" id="angle-input">
+      
+        <label >Enter angle degree</label>
+        <input
+          id="pct-input"
+          className="angle-input"
+          placeholder="50"
+          value={props.pct}
+          onChange={handleChangePct}
+        />
         
-        <li>Color 2<span>{props.color2}</span>
-        <input type="color" id="input2" name="color" value={props.color2} onInput={handleChange2}/></li> 
-      </ul>
-      <input className="angle-input" placeholder="50" value={props.pct} onChange={handleChangePct}/>
+      </div>
+      
     </div>
   );
 }

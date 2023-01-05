@@ -8,7 +8,7 @@
 .display-box {
   height: 250px;
   width: 50%;
-  border: 2px solid black;
+  border: 2px solid rgb(44, 39, 39);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,22 +19,62 @@
   width: 90%;
   border-radius: 2px;
   margin-bottom: 8px;
-  border: 1px solid black;
+  border: 1px solid rgb(44, 39, 39);
   background: linear-gradient(50deg, #ffffff, #000000);
 }
 .options-box {
   height: 250px;
   width: 50%;
-  border: 2px solid black;
+  border: 2px solid rgb(44, 39, 39);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;  
 }
 textarea {
   height: 30%;
   width: 88%;
   border-radius: 5px;
-  color: palevioletred;
-  background-color: black;
+  color: rgb(216, 128, 157);
+  background-color: rgb(31, 71, 82);
+}
+
+
+.color-choice{
+  display: inline-flex;
+  justify-content: space-around;
+  margin-right: 5%;
+  align-items:center;
+}
+#angle-input{
+  display: flex;
+  align-items: flex-start;
 }
 .angle-input {
   width: fit-content;
   max-width: 30px;
+  margin-left: 8%
+}
+@media only screen and (max-width: 850px){
+  .color-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+ 
+  .display-box{
+    height: 250px;
+    width: 100%;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .options-box {
+    
+    height: auto;
+    width: 100%;
+    border: 2px solid black;
+  }
 }
