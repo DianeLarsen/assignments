@@ -3,76 +3,124 @@
   align-items: center;
   width: 100%;
   justify-content: space-between;
+  min-height: 250px;
+  overflow: visible;
+  
 }
 
 .display-box {
-  height: 250px;
   width: 50%;
+  min-height: 250px;
+  height: 100%;
   border: 2px solid rgb(44, 39, 39);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: visible;
 }
 .color-box {
-  height: 60%;
+  min-height: 180px;
   width: 90%;
-  border-radius: 2px;
+  border-radius: 3px;
   margin-bottom: 8px;
   border: 1px solid rgb(44, 39, 39);
   background: linear-gradient(50deg, #ffffff, #000000);
 }
 .options-box {
-  height: 250px;
+  min-height: 250px;
+  height: 100%;
   width: 50%;
   border: 2px solid rgb(44, 39, 39);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;  
+  justify-content: space-around;
 }
-textarea {
-  height: 30%;
-  width: 88%;
+#autoresizing {
+  min-height: 45px;
+  height: auto;
+  width: 89.5%;
   border-radius: 5px;
   color: rgb(216, 128, 157);
   background-color: rgb(31, 71, 82);
 }
 
-
-.color-choice{
+.color-choice {
+  margin: 0;
+  padding: 0;
   display: inline-flex;
   justify-content: space-around;
-  margin-right: 5%;
-  align-items:center;
+  margin-right: 10%;
+  align-items: center;
 }
-#angle-input{
+#angle-input {
   display: flex;
   align-items: flex-start;
 }
 .angle-input {
   width: fit-content;
   max-width: 30px;
-  margin-left: 8%
+  margin-left: 8%;
 }
-@media only screen and (max-width: 850px){
+#delete-btn {
+  color: white;
+  background-color: rgb(253, 66, 66);
+  border: 1px solid darkred;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left:20px;
+}
+#delete-btn:hover {
+  background-color: darkred;
+}
+
+.add-btn {
+  color: white;
+  align-self: flex-end;
+  float: right;
+  margin-right: 10%;
+  background-color: green;
+  border-radius: 20px;
+  border: 1px solid darkgreen;
+  cursor: pointer;
+  width: fit-content;
+}
+.add-btn:hover {
+  background-color: darkgreen;
+}
+.newColor{
+  
+  margin-right: 0px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.newLabel{
+  margin-left:0;
+  margin-right: 89px;
+}
+.newColor-text{
+  margin-right: 90px;
+}
+@media only screen and (max-width: 850px) {
   .color-picker {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
   }
- 
-  .display-box{
+
+  .display-box {
     height: 250px;
     width: 100%;
-   
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   .options-box {
-    
     height: auto;
     width: 100%;
     border: 2px solid black;

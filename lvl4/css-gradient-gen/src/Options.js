@@ -41,20 +41,24 @@ export default function Options(props) {
           onInput={handleChange2}
         />
       </div>
-      <Color handleChange2={handleChange2} color1={props.color1} color2={props.color2} colors={props.colors} setColors={props.setColors}/>
+      <Color
+        handleChange2={handleChange2}
+        color1={props.color1}
+        color2={props.color2}
+        colors={props.colors}
+        setColors={props.setColors}
+      />
       <div className="color-choice" id="angle-input">
-      
-        <label >Enter angle degree</label>
+        <label>Enter angle degree</label>
         <input
+          type="number"
           id="pct-input"
           className="angle-input"
           placeholder="50"
           value={props.pct}
           onChange={handleChangePct}
         />
-        
       </div>
-      
     </div>
   );
 }
