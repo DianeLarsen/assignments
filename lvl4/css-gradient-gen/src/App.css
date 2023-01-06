@@ -62,7 +62,7 @@
   max-width: 30px;
   margin-left: 8%;
 }
-#delete-btn {
+.delete-btn {
   color: white;
   background-color: rgb(253, 66, 66);
   border: 1px solid darkred;
@@ -70,7 +70,7 @@
   cursor: pointer;
   margin-left:20px;
 }
-#delete-btn:hover {
+.delete-btn:hover {
   background-color: darkred;
 }
 

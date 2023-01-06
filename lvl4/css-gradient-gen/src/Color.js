@@ -37,7 +37,7 @@ export default function Color(props) {
                 value={colors}
                 onInput={handleChange}
               />
-              <button id="delete-btn" onClick={() => removeColor(i)}>
+              <button className="delete-btn" onClick={() => removeColor(i)}>
                 X
               </button>
             </div>
