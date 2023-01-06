@@ -43,11 +43,13 @@ function App() {
     setTimeout(() => {
       setCountDown((time) => time - 1);
     }, 1000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countDown, start]);
   React.useEffect(() => {
     if (countDown === 0 && readOnly === true) {
       setStart(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countDown]);
   function getWordCount(text) {
     let count = text
