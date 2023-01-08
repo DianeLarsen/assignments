@@ -1,0 +1,39 @@
+input {
+  margin: 10px;
+}
+.form-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 20px;
+}
+button{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    background-color: #00b3fc;
+}
+
+img{
+    width: 200px;
+}
+
+.display-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
