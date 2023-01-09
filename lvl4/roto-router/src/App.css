@@ -1,0 +1,46 @@
+body, .App{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+#root{
+    height: 100%;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: salmon;
+ 
+}
+.main {
+  background: url(/home/annieml99/vschool/development/assignment/lvl4/roto-router/src/plumbing-icons_1284-617.webp);
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.548);
+  background-position: left top;
+  min-height: 100%;
+    height: 800px;
+  display: flex;
+}
+.main:after {
+    content:"";
+    display: block;
+}
+img {
+  width: 300px;
+  float: right;
+}
+.facebook {
+  height: 35px;
+  width: auto;
+}
+footer {
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background-color: salmon;
+  color: whitesmoke;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
