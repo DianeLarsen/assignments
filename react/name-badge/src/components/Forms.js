@@ -1,16 +1,17 @@
-import React from "react"
+import React from "react";
 
 export default function Forms(props) {
-
-function restrictSym(evt) {
-  if (evt.which != 8 && evt.which != 0 && evt.which != 46 && evt.which < 48 || evt.which > 57 && evt.which < 96 || evt.which > 105)
-  {
+  function restrictSym(evt) {
+    if (
+      (evt.which != 8 && evt.which != 0 && evt.which != 46 && evt.which < 48) ||
+      (evt.which > 57 && evt.which < 96) ||
+      evt.which > 105
+    ) {
       evt.preventDefault();
+    }
   }
-}
 
   return (
-    
     <form className="form" onSubmit={props.handleSubmit}>
       <input
         type="text"
@@ -63,8 +64,8 @@ function restrictSym(evt) {
         id="phone-number"
         name="phone"
         min={0}
-        minLength = "10"
-       maxLength="10"
+        minLength="10"
+        maxLength="10"
         className="input"
         placeholder="Phone"
         onKeyDown={restrictSym}
@@ -97,5 +98,5 @@ function restrictSym(evt) {
 
       <button className="form--submit">Submit</button>
     </form>
-  )
+  );
 }

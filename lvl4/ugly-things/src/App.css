@@ -7,33 +7,76 @@ input {
   align-items: center;
   margin: 20px;
 }
-.btn{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    margin-bottom: 20px;
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
-button{
-    padding-left: 40px;
-    padding-right: 40px;
+button {
+  padding-left: 40px;
+  padding-right: 40px;
 }
-header{
-    display: flex;
-    flex-direction: column;
-    background-color: #00b3fc;
-}
-
-img{
-    width: 200px;
+header {
+  display: flex;
+  flex-direction: column;
+  background-color: #00b3fc;
 }
 
-.display-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+img {
+  width: 200px;
 }
-.card-container{
+
+.display-card {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  width: 30%;
+  border: 1px solid black;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+.display-cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+.delete-btn {
+  /* cursor:pointer;
+    font-weight: bolder;
+    font-size: 1.2em;
+    /* position:absolute; 
+    right: 7px;
+    top: 2px; */
+
+  border: 1px solid black;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  justify-self: flex-end;
+  align-self: flex-end;
+  padding: 3px 8px;
+  margin: 5px 0 0 0;
+  color: #fff;
+  background-color: rgb(167, 39, 39);
+font-size: 1.2em;
+  transition: background-color 0.5s ease-in-out;
+  z-index: 999;
+}
+h1{
+    font-size: 1.9em;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+
 }
